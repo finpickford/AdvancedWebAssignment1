@@ -7,7 +7,10 @@
   @foreach ($watches as $watch)
 
 <div>
-  {{$watches->brand}}
+
+
+  {{$watch->brand}}
+
 </div>
 
   @endforeach
