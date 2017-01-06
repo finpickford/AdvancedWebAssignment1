@@ -16,3 +16,7 @@
 // });
 
 Route::get('/', 'PagesController@home');
+
+Route::get('cards', 'CardsController@index');
+
+Route::get('watches', 'WatchesController@index');
