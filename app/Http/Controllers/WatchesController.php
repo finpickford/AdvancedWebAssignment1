@@ -15,4 +15,10 @@ class WatchesController extends Controller
 
       return view('watches.index', compact('watches'));
     }
+
+    public function show(Watch $watch)
+
+    {
+      return view('watches.show', compact('watch'));
+    }
 }

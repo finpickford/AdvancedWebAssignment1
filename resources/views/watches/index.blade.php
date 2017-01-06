@@ -9,7 +9,8 @@
 <div>
 
 
-  {{$watch->brand}}
+  <a href="/watches/{{ $watch->id }}">{{ $watch->modelName }}</a>
+
 
 </div>
 
