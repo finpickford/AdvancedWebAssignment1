@@ -13,7 +13,10 @@ class PagesController extends Controller
 
     public function home(){
 
-          $watches  = ['Rolex', 'Omega'];
-          return view('welcome', compact('watches'));
+
+
+          // $watches  = ['Rolex', 'Omega'];
+          // return view('welcome', compact('watches'));
+          return view('welcome');
       }
 }
