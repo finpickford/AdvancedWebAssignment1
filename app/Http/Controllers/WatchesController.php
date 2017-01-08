@@ -18,7 +18,18 @@ class WatchesController extends Controller
 
     public function show(Watch $watch)
 
-    {  
+    {
       return view('watches.show', compact('watch'));
+    }
+
+    public function store (Request $request)
+    {
+      $watch = new Watch;
+
+      $watch->brand = $request->brand;
+
+      $watch->save();
+
+      return back();
     }
 }

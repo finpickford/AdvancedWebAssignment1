@@ -21,4 +21,6 @@ Route::get('watches', 'WatchesController@index');
 
 Route::get('watches/{watch}', 'WatchesController@show');
 
-Route::post('watches/{watch}', 'ModelsController@store');
+Route::post('watches/{watch}/models', 'ModelsController@store');
+
+Route::post('watches/brands', 'WatchesController@store');
