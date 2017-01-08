@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Watch extends Model
 {
-    public function details()
+    public function models()
     {
-      return $this->hasMany(Details::class); 
+      return $this->hasMany(Models::class);
     }
 }

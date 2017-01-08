@@ -17,10 +17,8 @@
 
 Route::get('/', 'PagesController@home');
 
-Route::get('cards', 'CardsController@index');
-
 Route::get('watches', 'WatchesController@index');
 
 Route::get('watches/{watch}', 'WatchesController@show');
 
-Route::post('watches/{watch}/details', 'DetailsController@store');
+Route::post('watches/{watch}', 'ModelsController@store');

@@ -18,7 +18,7 @@ class WatchesController extends Controller
 
     public function show(Watch $watch)
 
-    {
+    {  
       return view('watches.show', compact('watch'));
     }
 }

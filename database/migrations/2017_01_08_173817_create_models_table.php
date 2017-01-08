@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWatchesTable extends Migration
+class CreateModelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateWatchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('watches', function (Blueprint $table) {
+        Schema::create('models', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('brand');
+            $table->integer('watch_id')->unsigned()->index();
+            $table->string('model_name');
+            $table->string('model_number');
+            $table->string('details');
+            $table->decimal('price');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreateWatchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('watches');
+        Schema::dropIfExists('models');
     }
 }
