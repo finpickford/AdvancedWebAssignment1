@@ -14,14 +14,18 @@ class ModelsController extends Controller
 {
   public function store(Request $request, Watch $watch)
   {
-    $model = new Models;
+    // $model = new Models;
+    //
+    // $model->model_name = $request->model_name;
+    // $model->model_number = $request->model_number;
+    // $model->details = $request->details;
+    // $model->price = $request->price;
 
-    $model->model_name = $request->model_name;
-    $model->model_number = $request->model_number;
-    $model->details = $request->details;
-    $model->price = $request->price;
+    // $watch->models()->save($model);
 
-    $watch->models()->save($model);
+    $watch->addModel(
+        new Models($request->all())
+    );
 
     return back();
   }
