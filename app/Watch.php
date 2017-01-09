@@ -16,8 +16,10 @@ class Watch extends Model
     //   return $this->hasMany(Watch::class);
     // }
 
-    public function addModel(Models $model)
+    public function addModel(Models $model, $userId)
     {
+      $model->user_id = $userId;
+
       return $this->models()->save($model);
     }
 }

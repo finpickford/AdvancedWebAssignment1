@@ -29,7 +29,7 @@
 
   <form method="POST" action="/watches/brands">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-  <textarea name="brand"></textarea>
+  <textarea name="brand" placeholder="Brand"></textarea>
 
   <button type="submit">Add brand</button>
 

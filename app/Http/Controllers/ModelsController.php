@@ -16,9 +16,17 @@ class ModelsController extends Controller
   public function store(Request $request, Watch $watch)
   {
 
-        $watch->addModel(
-        new Models($request->all())
-    );
+      $this->validate($request, [
+        'model_name' => 'required',
+        'model_number' => 'required',
+        'details' => 'required',
+        'price' => 'required'
+      ]);
+      //  $watch->addModel(
+        $model = new Models($request->all());
+
+        $watch->addModel($model, 1);
+      // );
 
     return view('watches.show', compact('watch'));
   }
@@ -26,7 +34,7 @@ class ModelsController extends Controller
   public function show(Models $model)
 
   {
-    
+
 
     return view('models.show', compact('model'));
   }
@@ -38,6 +46,13 @@ class ModelsController extends Controller
 
   public function update(Request $request, Models $model)
   {
+
+    $this->validate($request, [
+      'model_name' => 'required',
+      'model_number' => 'required',
+      'details' => 'required',
+      'price' => 'required'
+    ]);
 
     $model->update($request->all());
 

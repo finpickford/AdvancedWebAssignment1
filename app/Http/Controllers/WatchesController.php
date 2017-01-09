@@ -24,6 +24,11 @@ class WatchesController extends Controller
 
     public function store (Request $request)
     {
+
+      $this->validate($request, [
+        'brand' => 'required',
+      ]);
+
       $watch = new Watch;
 
       $watch->brand = $request->brand;
@@ -37,9 +42,8 @@ public function search(Request $request)
 {
   $watchSearched = $request->watchsearch;
 
-  $watch =  Watch::where('brand', 'LIKE', "$watchSearched")->get();
-  // $watch->models;
+  $watch = Watch::where('brand', 'LIKE', "$watchSearched")->get();
 
-  return view('watches.search', compact('watch'));
+  return view('watches.search', compact('watch', 'model'));
 }
 }

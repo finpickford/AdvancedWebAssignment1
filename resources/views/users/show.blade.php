@@ -10,6 +10,8 @@
 <img src="/images/profile.png" alt="Profile" style="height:200px; width:200px"/>
 <br>
 Email: {{$user->email}}
+<br>
+Member since: {{$user->created_at}}
 </ul>
 
 {{-- <form method="GET" action="/models/{{ $model->id }}/edit">

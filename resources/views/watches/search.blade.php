@@ -20,17 +20,17 @@
 
 @endforeach
 
-  <h3>Add a new model</h3>
+  {{-- <h3>Add a new model</h3>
 
 
   <form method="POST" action="/watches/{{ $result->id }}/models">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-  <textarea name="model_name">Model name</textarea>
-  <textarea name="model_number">Model number</textarea>
-  <textarea name="details">Details</textarea>
-  <textarea name="price">Price</textarea>
+  <textarea name="model_name" placeholder="Model Name"></textarea>
+  <textarea name="model_number" placeholder="Model Number"></textarea>
+  <textarea name="details" placeholder="Details"></textarea>
+  <textarea name="price" placeholder="Price"></textarea>
 
   <button type="submit">Add model</button>
 
-  </form>
+  </form> --}}
 @endsection
