@@ -19,8 +19,8 @@
 </form>
 <br>
 
-{{-- @foreach ($model->users as $user)
-<a href="">Created by: {{ $user->name }}</a>
-@endforeach --}}
+
+<a href="/users/{{ $model->user_id }}">Added by: {{ $model->user->name }}</a>
+
 </div>
 @endsection

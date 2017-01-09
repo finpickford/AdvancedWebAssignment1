@@ -19,8 +19,6 @@ class WatchesController extends Controller
     public function show(Watch $watch)
 
     {
-      // $watch->load('models.user');
-
       return view('watches.show', compact('watch'));
     }
 

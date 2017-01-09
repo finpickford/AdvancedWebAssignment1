@@ -32,3 +32,5 @@ Route::post('watches/{search}', 'WatchesController@search');
 Route::get('/models/{model}/edit', 'ModelsController@edit');
 
 Route::patch('models/{model}' , 'ModelsController@update');
+
+Route::get('/users/{user}', 'UsersController@show');

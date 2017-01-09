@@ -13,5 +13,10 @@ class Models extends Model
       return $this->belongsTo(Watch::class);
     }
 
+    public function user()
+    {
+      return $this->belongsTo(User::class);
+    }
+
 
 }
