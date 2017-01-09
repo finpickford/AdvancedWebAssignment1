@@ -16,6 +16,11 @@
 
 <form method="GET" action="/models/{{ $model->id }}/edit">
   <button type="submit">Edit model</button>
+</form>
+<br>
 
+{{-- @foreach ($model->users as $user)
+<a href="">Created by: {{ $user->name }}</a>
+@endforeach --}}
 </div>
 @endsection

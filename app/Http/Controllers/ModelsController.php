@@ -25,6 +25,7 @@ class ModelsController extends Controller
   public function show(Models $model)
 
   {
+
     return view('models.show', compact('model'));
   }
 

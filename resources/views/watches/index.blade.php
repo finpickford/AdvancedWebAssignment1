@@ -4,7 +4,7 @@
 
 <div class="heading">
 
-  <h1> All watches </h1>
+  <h1> All watch brands </h1>
 </div>
 
 <div class="content">

@@ -10,6 +10,7 @@
 @foreach ($watch->models as $model)
 
   <li><a href="/models/{{ $model->id }}">{{ $model->model_name }}</a></li>
+  {{-- <a href="">{{ $model->user_id }}</a> --}}
 @endforeach
 </ul>
 
