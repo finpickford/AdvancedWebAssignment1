@@ -12,11 +12,11 @@ class PagesController extends Controller
     // use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function home(){
-
-
-
-          // $watches  = ['Rolex', 'Omega'];
-          // return view('welcome', compact('watches'));
           return view('welcome');
       }
+
+    public function about(){
+          return view('about');
+      }
+
 }

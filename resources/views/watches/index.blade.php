@@ -2,7 +2,9 @@
 
 @section('content')
 
+<div class="content">
   <h1> All watches </h1>
+  <hr>
 
   @foreach ($watches as $watch)
 
@@ -30,5 +32,5 @@
   <button type="submit">Add brand</button>
 
   </form>
-
+</div>
 @endsection

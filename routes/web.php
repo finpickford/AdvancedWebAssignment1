@@ -11,9 +11,7 @@
 |
 */
 //
-// Route::get('/about', function () {
-//   return view('about');
-// });
+Route::get('/about', 'PagesController@about');
 
 Route::get('/', 'PagesController@home');
 
@@ -25,4 +23,4 @@ Route::post('watches/{watch}/models', 'ModelsController@store');
 
 Route::post('watches/brands', 'WatchesController@store');
 
-Route::post('watches/{search}', 'WatchesController@search'); 
+Route::post('watches/{search}', 'WatchesController@search');

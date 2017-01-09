@@ -2,6 +2,7 @@
 
 @section('content')
 
+<div class="content">
 
 <ul>
   @foreach ($watch as $result)
@@ -34,4 +35,5 @@
   <button type="submit">Add model</button>
 
   </form>
+</div>
 @endsection

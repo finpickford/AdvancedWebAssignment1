@@ -2,23 +2,16 @@
 
 @section('content')
 
+<div class="content">
+    <h1>Welcome to WristWatch, a place to research wrist watches.<h1>
 
-              <h1>Welcome to WristWatch, a place to search and research wrist watches.<h1>
-
-              <p>
-              Use the search box below to search for a watch.
-              </p>
-
-
-
-<form method="POST" action="/watches/search">
-  Search for a watch:
-  <input type="hidden" name="_token" value="{{ csrf_token() }}">
- <input type="search" name="watchsearch">
-
-<button type="submit">Search</button>
-
-</form>
+    <form method="POST" action="/watches/search">
+      <h3>Search for a watch:</h3>
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <input type="search" name="watchsearch">
+        <button type="submit">Search</button>
+    </form>
+  </div>
 
               {{-- @unless (empty($watches))
                 <p>There are some watches:</p>

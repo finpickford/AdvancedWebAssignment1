@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-
+<div class="content">
   <h1> {{$watch->brand}} </h1>
   <hr>
 <ul>
@@ -26,5 +26,5 @@
 <button type="submit">Add model</button>
 
 </form>
-
+</div>
 @endsection
