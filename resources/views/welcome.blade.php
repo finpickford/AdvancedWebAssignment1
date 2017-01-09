@@ -9,10 +9,15 @@
               Use the search box below to search for a watch.
               </p>
 
-<form>
- Search for a watch:
+
+
+<form method="POST" action="/watches/search">
+  Search for a watch:
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
  <input type="search" name="watchsearch">
- <input type="submit" value="Submit">
+
+<button type="submit">Search</button>
+
 </form>
 
               {{-- @unless (empty($watches))

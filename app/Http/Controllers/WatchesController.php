@@ -33,5 +33,13 @@ class WatchesController extends Controller
       return back();
     }
 
-  
+public function search(Request $request)
+{
+  $watchSearched = $request->watchsearch;
+
+  $watch =  Watch::where('brand', 'LIKE', "$watchSearched")->get();
+  // $watch->models;
+
+  return view('watches.search', compact('watch'));
+}
 }
