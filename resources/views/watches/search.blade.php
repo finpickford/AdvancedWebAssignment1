@@ -2,16 +2,14 @@
 
 @section('content')
 
-<div class="content">
-
-<ul>
   @foreach ($watch as $result)
 
-<div>
-<h1>{{ $result->brand }}</h1>
-<hr>
+  <div class="heading">
+<h1>Search results for: "{{ $result->brand }}"</h1>
 </div>
 
+<div class="content">
+<ul>
 @foreach ($result->models as $model)
 <li>
    {{ $model->model_name }}
@@ -35,5 +33,4 @@
   <button type="submit">Add model</button>
 
   </form>
-</div>
 @endsection

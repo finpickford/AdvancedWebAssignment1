@@ -16,6 +16,17 @@
     </head>
     <body>
 
+      <div class="logo">
+        <ul>
+        <li><h1> WristWatch</h1></li>
+         {{-- <li><div class="search"><form method="POST" action="/watches/search">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+          <input type="search" name="watchsearch" placeholder="Search">
+            <button type="submit">Search</button>
+        </form></div></li>  --}}
+      </ul>
+      </div>
+
       <div class="nav">
 
         <ul>

@@ -1,5 +1,5 @@
 html, body {
-        background-color: #fff;
+        background-color: #ecf0f1;
         color: #636b6f;
         font-family: 'Raleway', sans-serif;
         font-weight: 100;
@@ -14,13 +14,61 @@ html, body {
     }
 
   .content {
-    padding: 30px 0;
+    padding: 15px 0;
     text-align: center;
+    clear: both;
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #CCC;
+    width: 80%;
+    margin: 10px auto;
+    max-width: 1024px;
+    color: #2c3e50;
+    font-weight: bolder;
 }
+
+.logo {
+  padding: 20px 0;
+  text-align: center;
+  /*background-color: #34495e;*/
+  background-color: #27ae60;
+  color: #ffffff;
+}
+
+.logo ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+}
+
+
+.logo li {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+    color: #ffffff;
+    display: inline-block;
+}
+
+.heading {
+  padding: 5px 0;
+  text-align: center;
+  /*background-color: #34495e;*/
+  background-color: #2ecc71;
+  color: #ffffff
+}
+
+.heading h1 {
+  font-size: 25px;
+}
+
 
     .nav ul {
     list-style: none;
-    background-color: #2c3e50;
+    /*background-color: #2c3e50;*/
+    background-color: #27ae60;
     text-align: center;
     padding: 0;
     margin: 0;
@@ -42,7 +90,7 @@ html, body {
   }
 
   .nav a:hover {
-    background-color: #3498db;
+    background-color: #16a085;
   }
 
   .nav a.active {

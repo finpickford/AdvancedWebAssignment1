@@ -2,10 +2,12 @@
 
 @section('content')
 
-<div class="content">
-  <h1> All watches </h1>
-  <hr>
+<div class="heading">
 
+  <h1> All watches </h1>
+</div>
+
+<div class="content">
   @foreach ($watches as $watch)
 
 <div>

@@ -1,9 +1,11 @@
 @extends('layout')
 
 @section('content')
-<div class="content">
+  <div class="heading">
   <h1> {{$watch->brand}} </h1>
-  <hr>
+</div>
+
+  <div class="content">
 <ul>
 @foreach ($watch->models as $model)
 
