@@ -27,6 +27,14 @@ html, body {
     font-weight: bolder;
 }
 
+.heading.search input {
+  border-radius: 60px;
+  width: 500px;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+}
+
 .logo {
   padding: 20px 0;
   text-align: center;
@@ -62,6 +70,52 @@ html, body {
 
 .heading h1 {
   font-size: 25px;
+}
+
+.holder {
+  width: 95%;
+  margin: 0 auto;
+  text-align:center;
+}
+
+.rolex, .omega, .oris, .tudor, .seiko, .nomos {
+   position: relative;
+   display: inline-block;
+   width:240px;
+   height:250px;
+   padding:10px;
+   margin-left:30px;
+   margin-top:20px;
+   color:white;
+   font-size: 25px;
+   text-align: center;
+}
+
+img{
+  width: 170px;
+  margin: 28px auto 0 auto;
+  height: 100px;
+  padding: 10px;
+}
+
+.rolex {
+  background:#9b59b6;
+}
+
+.omega {
+  background:#f1c40f;
+}
+.oris {
+  background:#e67e22;
+}
+.tudor {
+  background:#e74c3c;
+}
+.seiko {
+  background:#3498db;
+}
+.nomos {
+  background:#7f8c8d;
 }
 
 
