@@ -21,4 +21,25 @@ class ModelsController extends Controller
 
     return view('watches.show', compact('watch'));
   }
+
+  public function show(Models $model)
+
+  {
+    return view('models.show', compact('model'));
+  }
+
+  public function edit(Models $model)
+  {
+    return view('models.edit', compact('model'));
+  }
+
+  public function update(Request $request, Models $model)
+  {
+
+    $model->update($request->all());
+
+    return back();
+
+
+  }
 }

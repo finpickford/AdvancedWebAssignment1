@@ -9,9 +9,7 @@
 <ul>
 @foreach ($watch->models as $model)
 
-<li>
-   {{ $model->model_name }}
-</li>
+  <li><a href="/models/{{ $model->id }}">{{ $model->model_name }}</a></li>
 @endforeach
 </ul>
 
