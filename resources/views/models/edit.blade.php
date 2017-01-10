@@ -8,7 +8,14 @@
 </div>
 
 <div class="content">
-
+  <ul>
+  <li>Model number: {{$model->model_number}}</li>
+  <br>
+  <li>Description: {{$model->details}}</li>
+  <br>
+  <li>Price: £{{$model->price}}</li>
+  </ul>
+  
 <form method="POST" action="/models/{{ $model->id }}">
 
   {{ method_field('PATCH') }}

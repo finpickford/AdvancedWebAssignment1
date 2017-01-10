@@ -36,11 +36,12 @@ html, body {
 }
 
 .logo {
-  padding: 20px 0;
   text-align: center;
   /*background-color: #34495e;*/
   background-color: #27ae60;
   color: #ffffff;
+  height: 62px;
+  padding: 10px 50px;
 }
 
 .logo ul {
@@ -48,6 +49,8 @@ html, body {
   padding: 0;
   margin: 0;
   color: #ffffff;
+  display: inline-block;
+  float: left;
 }
 
 
@@ -58,6 +61,11 @@ html, body {
     height: 40px;
     color: #ffffff;
     display: inline-block;
+}
+
+.logo .search {
+  float: right;
+  padding: 31px 0px 0px;
 }
 
 .heading {
@@ -92,10 +100,8 @@ html, body {
 }
 
 img{
-  width: 170px;
-  margin: 28px auto 0 auto;
+  width: 120px;
   height: 100px;
-  padding: 10px;
 }
 
 .rolex {

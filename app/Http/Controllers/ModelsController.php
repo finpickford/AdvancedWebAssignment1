@@ -56,7 +56,7 @@ class ModelsController extends Controller
 
     $model->update($request->all());
 
-    return back();
+    return view('models.show', compact('model'));
 
 
   }
