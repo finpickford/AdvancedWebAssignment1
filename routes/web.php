@@ -22,8 +22,11 @@
   Route::post('watches/{watch}/models', 'ModelsController@store');
   Route::post('watches/brands', 'WatchesController@store');
   Route::post('watches/{search}', 'WatchesController@search');
+  Route::patch('watches/{watch}/delete', 'WatchesController@delete');
+
 
   Route::get('/models/{model}/edit', 'ModelsController@edit');
+  Route::patch('/models/{model}/delete', 'ModelsController@delete');
   Route::get('models/{model}', 'ModelsController@show');
   Route::patch('models/{model}' , 'ModelsController@update');
 

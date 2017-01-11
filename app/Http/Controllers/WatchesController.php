@@ -46,4 +46,13 @@ public function search(Request $request)
 
   return view('watches.search', compact('watch', 'model'));
 }
+
+public function delete(Request $request, Watch $watch)
+{
+  $watch->delete($request->all());
+
+  $watches = Watch::all();
+
+  return view('watches.index', compact('watches'));
+}
 }

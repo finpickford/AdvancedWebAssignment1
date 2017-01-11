@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
 use App\Watch;
 use App\Models;
 use App\User;
@@ -22,11 +23,11 @@ class ModelsController extends Controller
         'details' => 'required',
         'price' => 'required'
       ]);
-      //  $watch->addModel(
-        $model = new Models($request->all());
 
-        $watch->addModel($model, 1);
-      // );
+        $model = new Models($request->all());
+        $user = Auth::user()->id;
+        $watch->addModel($model, $user);
+
 
     return view('watches.show', compact('watch'));
   }
@@ -34,8 +35,6 @@ class ModelsController extends Controller
   public function show(Models $model)
 
   {
-
-
     return view('models.show', compact('model'));
   }
 
@@ -57,7 +56,15 @@ class ModelsController extends Controller
     $model->update($request->all());
 
     return view('models.show', compact('model'));
-
-
   }
+
+  public function delete(Request $request, Models $model)
+  {
+
+    $model->delete($request->all());
+
+    return view('models.delete', compact('model'));
+  }
+
+
 }

@@ -23,8 +23,7 @@
 
 
 <form method="POST" action="/watches/{{ $watch->id }}/models">
-  {{-- <input type="hidden" name="user_id" value="1"> --}}
-
+  
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
 <textarea name="model_name" placeholder="Model name">{{ old('model_name') }}</textarea>
 <textarea name="model_number" placeholder="Model number">{{ old('model_number') }}</textarea>
@@ -44,6 +43,16 @@
   </ul>
 @endforeach
 @endif
+
+<form method="POST" action="/watches/{{ $watch->id }}/delete">
+
+{{ method_field('PATCH') }}
+  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+<button type="submit">Delete brand</button>
+
+</form>
+
 @endif
 </div>
 @endsection
