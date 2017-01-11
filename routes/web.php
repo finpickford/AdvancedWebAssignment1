@@ -32,4 +32,6 @@
 
   Route::get('/users/{user}', 'UsersController@show');
 
+  Route::patch('/users/register', 'UsersController@store');
+
   Auth::routes();

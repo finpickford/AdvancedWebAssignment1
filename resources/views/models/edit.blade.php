@@ -1,7 +1,8 @@
 @extends('layout')
 
 @section('content')
-
+  @if (Auth::guest())
+  @else
 <div class="heading">
  <h1> Edit {{ $model->model_name }} </h1>
 
@@ -42,5 +43,6 @@
 @endif
 
 </div>
+@endif
 
 @endsection

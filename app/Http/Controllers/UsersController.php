@@ -13,15 +13,16 @@ use App\Http\Controllers\Controller;
 class UsersController extends Controller
 
 {
-  // public function store(Request $request, Watch $watch)
-  // {
-  //
-  //   $watch->addModel(
-  //       new Models($request->all())
-  //   );
-  //
-  //   return view('watches.show', compact('watch'));
-  // }
+
+  public function store(Request $request, User $user)
+  {
+
+    $user->addModel(
+        new User($request->all())
+    );
+
+    return view('/');
+  }
 
   public function show(User $user)
 
@@ -30,18 +31,4 @@ class UsersController extends Controller
     return view('users.show', compact('user'));
   }
 
-  // public function edit(Models $model)
-  // {
-  //   return view('models.edit', compact('model'));
-  // }
-  //
-  // public function update(Request $request, Models $model)
-  // {
-  //
-  //   $model->update($request->all());
-  //
-  //   return back();
-  //
-  //
-  // }
 }
