@@ -31,11 +31,11 @@
 
 
   <form method="POST" action="/watches/brands">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+    {{ csrf_field() }}
+
   <textarea name="brand" placeholder="Brand">{{ old('brand') }}</textarea>
-
   <button type="submit">Add brand</button>
-
   </form>
 
   @if (count($errors))

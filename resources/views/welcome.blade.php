@@ -3,16 +3,9 @@
 @section('content')
 
 <div class="heading">
-    {{-- <h1>Use the search box below to search for a brand.<h1> --}}
+  
       <h1>Welcome<h1>
 
-{{-- <div class="search">
-    <form method="POST" action="/watches/search">
-      <input type="hidden" name="_token" value="{{ csrf_token() }}">
-      <input type="search" name="watchsearch" placeholder="Search for a watch">
-        <button type="submit">Search</button>
-    </form>
-  </div> --}}
   </div>
 
   <div class="content">

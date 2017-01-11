@@ -14,9 +14,6 @@
 
             <link rel="stylesheet" href="/css/style.css">
 
-
-
-
         </head>
         <body>
           <div class="login">
@@ -28,11 +25,9 @@
                   <li><a href="{{ url('/register') }}">Register</a></li>
               @else
                   <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                          {{ Auth::user()->name }} <span class="caret"></span>
-                      </a>
+                      <a href="/users/{{Auth::user()->id}}">{{ Auth::user()->name }}</a>
 
-                      <ul class="dropdown-menu" role="menu">
+                      <ul class="dropdown-menu">
                           <li>
                               <a href="{{ url('/logout') }}"
                                   onclick="event.preventDefault();
@@ -51,11 +46,13 @@
           </div>
         </div>
 
-          <div class="logo">
+          <div class="header">
+            <div class="logo">
             <ul>
             <li><h1><a href=/>WristWatch</a></h1></li>
 
           </ul>
+        </div>
 
           <div class="search">
               <form method="POST" action="/watches/search">
@@ -82,8 +79,12 @@
         </body>
 
           @yield('footer')
+          {{-- <div class="footer">
+            Fin Pickford u1362372
+          </div> --}}
 
     </html>
 
 </body>
+
 </html>

@@ -20,8 +20,8 @@
 <form method="POST" action="/models/{{ $model->id }}">
 
   {{ method_field('PATCH') }}
-
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
+  {{ csrf_field() }}
+  
 <textarea name="model_name" placeholder="Model name">{{ old('model_name') }}</textarea>
 <textarea name="model_number" placeholder="Model number">{{ old('model_number') }}</textarea>
 <textarea name="details" placeholder="Details">{{ old('details') }}</textarea>

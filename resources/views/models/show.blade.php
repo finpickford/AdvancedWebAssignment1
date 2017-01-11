@@ -25,7 +25,7 @@
 <form method="POST" action="/models/{{ $model->id }}/delete">
 
   {{ method_field('PATCH') }}
-  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+  {{ csrf_field() }}
 
   <button type="submit">Delete model</button>
 </form>
@@ -34,6 +34,7 @@
 
 <a href="/users/{{ $model->user_id }}">Added by: {{ $model->user->name }}</a>
 
-</div>
+
 @endif
+</div>
 @endsection
