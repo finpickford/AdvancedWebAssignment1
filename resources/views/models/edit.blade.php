@@ -15,20 +15,31 @@
   <br>
   <li>Price: £{{$model->price}}</li>
   </ul>
-  
+
 <form method="POST" action="/models/{{ $model->id }}">
 
   {{ method_field('PATCH') }}
 
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<textarea name="model_name" placeholder="Model name"></textarea>
-<textarea name="model_number" placeholder="Model number"></textarea>
-<textarea name="details" placeholder="Details"></textarea>
-<textarea name="price" placeholder="Price"></textarea>
+<textarea name="model_name" placeholder="Model name">{{ old('model_name') }}</textarea>
+<textarea name="model_number" placeholder="Model number">{{ old('model_number') }}</textarea>
+<textarea name="details" placeholder="Details">{{ old('details') }}</textarea>
+<textarea name="price" placeholder="Price">{{ old('price') }}</textarea>
 
 <button type="submit">Update model</button>
 
 </form>
+
+@if (count($errors))
+
+  <ul>
+    @foreach ($errors->all() as $error)
+      <li>
+        {{ $error}}
+      </li>
+  </ul>
+@endforeach
+@endif
 
 </div>
 

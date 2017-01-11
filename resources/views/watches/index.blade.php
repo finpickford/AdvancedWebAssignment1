@@ -24,15 +24,30 @@
 
   @endforeach
 
+  @if (Auth::guest())
+  @else
+
   <h3>Add a new brand</h3>
 
 
   <form method="POST" action="/watches/brands">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-  <textarea name="brand" placeholder="Brand"></textarea>
+  <textarea name="brand" placeholder="Brand">{{ old('brand') }}</textarea>
 
   <button type="submit">Add brand</button>
 
   </form>
+
+  @if (count($errors))
+
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>
+          {{ $error}}
+        </li>
+    </ul>
+  @endforeach
+@endif
+@endif
 </div>
 @endsection

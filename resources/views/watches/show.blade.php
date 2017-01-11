@@ -1,6 +1,8 @@
 @extends('layout')
 
 @section('content')
+
+
   <div class="heading">
   <h1> {{$watch->brand}} </h1>
 </div>
@@ -14,6 +16,9 @@
 @endforeach
 </ul>
 
+@if (Auth::guest())
+@else
+
 <h3>Add a new model</h3>
 
 
@@ -21,13 +26,24 @@
   {{-- <input type="hidden" name="user_id" value="1"> --}}
 
   <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<textarea name="model_name" placeholder="Model name"></textarea>
-<textarea name="model_number" placeholder="Model number"></textarea>
-<textarea name="details" placeholder="Details"></textarea>
-<textarea name="price" placeholder="Price"></textarea>
+<textarea name="model_name" placeholder="Model name">{{ old('model_name') }}</textarea>
+<textarea name="model_number" placeholder="Model number">{{ old('model_number') }}</textarea>
+<textarea name="details" placeholder="Details">{{ old('details') }}</textarea>
+<textarea name="price" placeholder="Price">{{ old('price') }}</textarea>
 
 <button type="submit">Add model</button>
 
 </form>
+@if (count($errors))
+
+  <ul>
+    @foreach ($errors->all() as $error)
+      <li>
+        {{ $error}}
+      </li>
+  </ul>
+@endforeach
+@endif
+@endif
 </div>
 @endsection

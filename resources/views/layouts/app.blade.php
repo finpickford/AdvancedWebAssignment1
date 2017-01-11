@@ -53,7 +53,7 @@
 
           <div class="logo">
             <ul>
-            <li><h1><a href=/>WristWatch</a></h1></li>
+            <li><h1> WristWatch</h1></li>
 
           </ul>
 

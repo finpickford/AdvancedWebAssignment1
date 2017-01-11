@@ -14,6 +14,9 @@
 <li>Price: £{{$model->price}}</li>
 </ul>
 
+@if (Auth::guest())
+@else
+
 <form method="GET" action="/models/{{ $model->id }}/edit">
   <button type="submit">Edit model</button>
 </form>
@@ -23,4 +26,5 @@
 <a href="/users/{{ $model->user_id }}">Added by: {{ $model->user->name }}</a>
 
 </div>
+@endif
 @endsection

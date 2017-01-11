@@ -11,26 +11,22 @@
 |
 */
 //
-Route::get('/about', 'PagesController@about');
 
-Route::get('/', 'PagesController@home');
+  Route::get('/about', 'PagesController@about');
+  Route::get('/', 'PagesController@home');
 
-Route::get('forum', 'ForumController@index');
+  Route::get('forum', 'ForumController@index');
 
-Route::get('watches', 'WatchesController@index');
+  Route::get('watches', 'WatchesController@index');
+  Route::get('watches/{watch}', 'WatchesController@show');
+  Route::post('watches/{watch}/models', 'ModelsController@store');
+  Route::post('watches/brands', 'WatchesController@store');
+  Route::post('watches/{search}', 'WatchesController@search');
 
-Route::get('watches/{watch}', 'WatchesController@show');
+  Route::get('/models/{model}/edit', 'ModelsController@edit');
+  Route::get('models/{model}', 'ModelsController@show');
+  Route::patch('models/{model}' , 'ModelsController@update');
 
-Route::get('models/{model}', 'ModelsController@show');
+  Route::get('/users/{user}', 'UsersController@show');
 
-Route::post('watches/{watch}/models', 'ModelsController@store');
-
-Route::post('watches/brands', 'WatchesController@store');
-
-Route::post('watches/{search}', 'WatchesController@search');
-
-Route::get('/models/{model}/edit', 'ModelsController@edit');
-
-Route::patch('models/{model}' , 'ModelsController@update');
-
-Route::get('/users/{user}', 'UsersController@show');
+  Auth::routes();
