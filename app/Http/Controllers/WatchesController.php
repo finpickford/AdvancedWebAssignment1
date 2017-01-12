@@ -44,7 +44,7 @@ public function search(Request $request)
 
   $watch = Watch::where('brand', 'LIKE', "$watchSearched")->get();
 
-  return view('watches.search', compact('watch', 'model'));
+  return view('watches.search', compact('watch'));
 }
 
 public function delete(Request $request, Watch $watch)

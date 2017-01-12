@@ -11,10 +11,6 @@ class Watch extends Model
       return $this->hasMany(Models::class);
     }
 
-    // public function brands()
-    // {
-    //   return $this->hasMany(Watch::class);
-    // }
 
     public function addModel(Models $model, $userId)
     {

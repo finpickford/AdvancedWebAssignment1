@@ -66,11 +66,11 @@
           <div class="nav">
 
             <ul>
-            <li><a href=/>Home</a></li>
+              <li><a href=/>Home</a></li>
               <li><a href=/watches>Brands</a></li>
               <li><a href=/about>About</a></li>
-              <li><a href=/forum>Forum</a></li>
-                </ul>
+              {{-- <li><a href=/comments>Comments</a></li> --}}
+            </ul>
 
         </div>
 

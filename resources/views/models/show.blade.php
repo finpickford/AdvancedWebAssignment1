@@ -31,10 +31,31 @@
 </form>
 <br>
 
+<form method="POST" action="/models/{{ $model->id }}/comment">
+
+  {{ csrf_field() }}
+
+<textarea name="comment" placeholder="Comment">{{ old('comment') }}</textarea>
+
+<button type="submit">Leave comment</button>
+
+</form>
+<br>
+
 
 <a href="/users/{{ $model->user_id }}">Added by: {{ $model->user->name }}</a>
 
 
 @endif
 </div>
+
+<div class="comments">
+  <h3>Comments</h3>
+@foreach ($comments as $com)
+  <ul>
+<li>{{ $com->comment }} - {{ $com->user->name}}</li>
+</ul>
+@endforeach
+</div>
+
 @endsection

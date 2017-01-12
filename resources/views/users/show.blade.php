@@ -20,4 +20,9 @@ Member since: {{$user->created_at}}
 <br>
 
 </div>
+
+<div class="content">
+  Comments
+{{-- {{ $user->comments->comment }} --}}
+</div>
 @endsection

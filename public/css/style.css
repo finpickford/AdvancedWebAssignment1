@@ -60,6 +60,29 @@ html, body {
     font-weight: bolder;
 }
 
+.comments {
+  padding: 15px 0;
+  text-align: center;
+  clear: both;
+  background-color: white;
+  padding: 15px;
+  border: 1px solid #CCC;
+  width: 80%;
+  margin: 10px auto;
+  max-width: 1024px;
+  color: #2c3e50;
+  font-weight: bolder;
+}
+
+.comments h3 {
+  padding: 5px 0;
+  text-align: center;
+  background-color: #27ae60;
+  width: 100%;
+  color: #ffffff;
+  font-weight: bold;
+}
+
 .heading.search input {
   border-radius: 60px;
   width: 500px;
@@ -165,7 +188,6 @@ img{
 
     .nav ul {
     list-style: none;
-    /*background-color: #2c3e50;*/
     background-color: #27ae60;
     text-align: center;
     padding: 0;
@@ -205,6 +227,7 @@ img{
       line-height: 50px;
       font-size: 1.4em;
     }
+
 
     /* Option 1 - Display Inline */
     .nav li {
