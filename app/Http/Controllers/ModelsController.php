@@ -8,6 +8,7 @@ use Auth;
 use App\Watch;
 use App\Models;
 use App\User;
+use App\Specifications;
 use App\Comments;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -37,8 +38,8 @@ class ModelsController extends Controller
 
   {
     $comments = Comments::where('models_id', 'LIKE', "$model->id")->get();
-
-    return view('models.show', compact('model', 'comments'));
+    
+    return view('models.show', compact('model', 'comments', 'specifications'));
   }
 
   public function edit(Models $model)

@@ -14,6 +14,17 @@
 <li>Price: £{{$model->price}}</li>
 </ul>
 
+  <ul>
+  <li>Case size: {{$model->specifications->case_size}}</li>
+  <br>
+  <li>Dial colour: {{$model->specifications->dial_colour}}</li>
+  <br>
+  <li>Movement type: {{$model->specifications->movement_type}}</li>
+<br>
+  <li>Case material: {{$model->specifications->case_material}}</li>
+  </ul>
+
+
 @if (Auth::guest())
 @else
 
