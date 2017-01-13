@@ -24,7 +24,7 @@ html, body {
     }
 
     .alertError {
-      background: red;
+      background: #e74c3c;
     }
 
     .dropdown {

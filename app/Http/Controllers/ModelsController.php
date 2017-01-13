@@ -61,7 +61,7 @@ class ModelsController extends Controller
     return view('models.show', compact('model'));
   }
 
-  public function delete(Request $request, Models $model)
+  public function delete(Request $request, Models $model, Watch $watch)
   {
 
     $model->delete($request->all());

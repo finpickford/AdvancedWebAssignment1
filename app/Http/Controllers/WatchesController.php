@@ -51,8 +51,7 @@ public function delete(Request $request, Watch $watch)
 {
   $watch->delete($request->all());
 
-  $watches = Watch::all();
 
-  return view('watches.index', compact('watches'));
+  return redirect('/watches');
 }
 }

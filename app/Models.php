@@ -23,5 +23,9 @@ class Models extends Model
       return $this->hasMany(Comments::class);
     }
 
+    public function specifications()
+    {
+      return $this->hasOne(Specifications::class);
+    }
 
 }

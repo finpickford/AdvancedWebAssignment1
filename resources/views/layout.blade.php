@@ -57,7 +57,7 @@
           <div class="search">
               <form method="POST" action="/watches/search">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="search" name="watchsearch" placeholder="Search for a watch">
+                <input type="search" name="watchsearch" placeholder="Search for a brand">
                   <button type="submit">Search</button>
               </form>
             </div>
