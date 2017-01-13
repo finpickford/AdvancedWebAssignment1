@@ -31,6 +31,11 @@
 <textarea name="details" placeholder="Details">{{ old('details') }}</textarea>
 <textarea name="price" placeholder="Price">{{ old('price') }}</textarea>
 
+{{-- <textarea name="case_size" placeholder="Case size">{{ old('case_size') }}</textarea>
+<textarea name="dial_colour" placeholder="Dial colour">{{ old('dial_colour') }}</textarea>
+<textarea name="movement_type" placeholder="Movement type">{{ old('movement_type') }}</textarea>
+<textarea name="case_material" placeholder="Materail">{{ old('case_material') }}</textarea> --}}
+
 <button type="submit">Add model</button>
 </form>
 

@@ -27,8 +27,19 @@ class ModelsController extends Controller
       ]);
 
         $model = new Models($request->all());
+
+        // $specification = new Specifications(
+        //   [
+        //     $request->case_size,
+        //     $request->dial_colour,
+        //     $request->movement_type,
+        //     $request->case_material
+        //   ]
+        // );
+
         $user = Auth::user()->id;
         $watch->addModel($model, $user);
+        //$model->addModel($specification);
 
 
     return view('watches.show', compact('watch'));
@@ -38,7 +49,7 @@ class ModelsController extends Controller
 
   {
     $comments = Comments::where('models_id', 'LIKE', "$model->id")->get();
-    
+
     return view('models.show', compact('model', 'comments', 'specifications'));
   }
 
