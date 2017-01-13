@@ -4,7 +4,7 @@
   @if (Auth::guest())
   @else
 <div class="heading">
- <h1> Add a model to {{ $watch->brand }} </h1>
+ <h1> Add {{ $watch->brand }} model</h1>
 
 </div>
 

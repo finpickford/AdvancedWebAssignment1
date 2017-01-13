@@ -19,9 +19,6 @@
 @if (Auth::guest())
 @else
 
-<h3>Add a new model</h3>
-
-
 <form method="GET" action="/watches/{{$watch->id}}/addmodel">
 
 

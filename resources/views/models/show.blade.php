@@ -3,27 +3,39 @@
 @section('content')
   <div class="heading">
   <h1> {{$model->model_name}} </h1>
+  <h3>£{{$model->price}}</h3>
 </div>
 
   <div class="content">
+
 <ul>
-<li>Model number: {{$model->model_number}}</li>
-<br>
-<li>Description: {{$model->details}}</li>
-<br>
-<li>Price: £{{$model->price}}</li>
+Model number: {{$model->model_number}}
+</uL>
+
+<script type="text/javascript" src="/js/tabs.js"></script>
+
+<div class="info">
+
+<ul class="tab">
+<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Details')" id="defaultOpen">Detials</a></li>
+<li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Specifications')">Specifications</a></li>
 </ul>
 
-  <ul>
-  <li>Case size: {{$model->specifications->case_size}}</li>
-  <br>
-  <li>Dial colour: {{$model->specifications->dial_colour}}</li>
-  <br>
-  <li>Movement type: {{$model->specifications->movement_type}}</li>
-<br>
-  <li>Case material: {{$model->specifications->case_material}}</li>
-  </ul>
+<div id="Details" class="tabcontent">
+  <h3>Details</h3>
+<p>{{$model->details}}</p>
+</div>
 
+<div id="Specifications" class="tabcontent">
+<h3> Specifications </h3>
+ <p>
+  Case size: {{$model->specifications->case_size}} <br>
+  Dial colour: {{$model->specifications->dial_colour}} <br>
+  Movement type: {{$model->specifications->movement_type}} <br>
+  Case material: {{$model->specifications->case_material}}
+ </p>
+</div>
+</div>
 
 @if (Auth::guest())
 @else
