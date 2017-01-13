@@ -16,6 +16,12 @@ use App\Http\Controllers\Controller;
 class ModelsController extends Controller
 
 {
+
+  public function add(Watch $watch)
+  {
+    return view('models.add', compact('watch'));
+  }
+
   public function store(Request $request, Watch $watch)
   {
 
@@ -26,21 +32,28 @@ class ModelsController extends Controller
         'price' => 'required'
       ]);
 
-        $model = new Models($request->all());
-
-        // $specification = new Specifications(
-        //   [
-        //     $request->case_size,
-        //     $request->dial_colour,
-        //     $request->movement_type,
-        //     $request->case_material
-        //   ]
-        // );
+        // $model = new Models($request->all());
 
         $user = Auth::user()->id;
-        $watch->addModel($model, $user);
-        //$model->addModel($specification);
 
+        $model = new Models;
+        $model->model_name = $request->model_name;
+        $model->model_number = $request->model_number;
+        $model->details = $request->details;
+        $model->price = $request->price;
+        $model->user_id = $user;
+        $model->watch_id = $watch->id;
+        $model->save();
+
+        $specification = new Specifications;
+        $specification->case_size = $request->case_size;
+        $specification->dial_colour = $request->dial_colour;
+        $specification->movement_type = $request->movement_type;
+        $specification->case_material = $request->case_material;
+        $specification->models_id = $model->id;
+        $specification->save();
+
+        // $watch->addModel($model, $user);
 
     return view('watches.show', compact('watch'));
   }

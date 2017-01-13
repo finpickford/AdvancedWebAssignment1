@@ -36,6 +36,7 @@
   Route::post('watches/{search}', 'WatchesController@search');
   Route::patch('watches/{watch}/delete', 'WatchesController@delete');
 
+  route::get('/watches/{watch}/addmodel' , 'ModelsController@add');
 
   Route::get('/models/{model}/edit', 'ModelsController@edit');
   Route::patch('/models/{model}/delete', 'ModelsController@delete');
