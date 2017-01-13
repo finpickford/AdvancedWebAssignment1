@@ -13,6 +13,20 @@
 //
 
   Route::get('/about', 'PagesController@about');
+
+  Route::get('/begin', function () {
+  flash('You are now signed in!', 'Success');
+
+
+    return redirect('/');
+  });
+
+  // Route::get('/begin', function () {
+  //   Session::flash('status', 'Hello there');
+  //
+  //   return redirect('/');
+  // });
+
   Route::get('/', 'PagesController@home');
 
   Route::get('watches', 'WatchesController@index');
@@ -31,7 +45,7 @@
 
   Route::get('/users/{user}', 'UsersController@show');
 
-  Route::patch('/users/register', 'UsersController@store');
+  //Route::patch('/users/register', 'UsersController@store');
 
   Route::get('comments' , 'CommentsController@index');
 

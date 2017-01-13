@@ -3,9 +3,13 @@
 @section('content')
 
 <div class="heading">
-  
+
       <h1>Welcome<h1>
 
+  </div>
+
+  <div class="container">
+    @include ('flash')
   </div>
 
   <div class="content">
