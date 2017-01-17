@@ -3,39 +3,7 @@
 
 @section('content')
 
-{{-- <script src="https://github.com/chartjs/Chart.js/releases/tag/v2.4.0"></script> --}}
-{{-- <script src="/js/jschart.js"></script> --}}
 <div class="content">
-<script>var year = ['2013','2014','2015', '2016'];
-
-var data_omega = <?php echo $omega; ?>;
-
-var data_rolex = <?php echo $rolex; ?>;
-
-
-var barChartData = {
-
-    labels: year,
-
-    datasets: [{
-
-        label: 'omega',
-
-        backgroundColor: "rgba(220,220,220,0.5)",
-
-        data: data_omega
-
-    }, {
-
-        label: 'View',
-
-        backgroundColor: "rgba(151,187,205,0.5)",
-
-        data: data_rolex
-
-    }]
-
-};</script>
 
 <div class="container">
 
@@ -51,6 +19,64 @@ var barChartData = {
 
                     <canvas id="canvas" height="280" width="600"></canvas>
 
+<script type="text/javascript" src="https://github.com/chartjs/Chart.js/releases/download/v2.4.0/Chart.bundle.js"></script>
+                    <script>
+
+                    var data_omega = <?php echo $omega; ?>;
+                    var data_rolex = <?php echo $rolex; ?>;
+
+
+                    var barChartData = {
+
+
+
+                        datasets: [
+                          {
+
+                              label: 'omega',
+
+                              backgroundColor: "rgba(151,187,205,0.5)",
+
+                              data: data_omega
+
+                          },
+
+                        {
+
+                            label: 'rolex',
+
+                            backgroundColor: "rgba(151,187,205,0.5)",
+
+                            data: data_rolex
+
+                        }]
+
+                    };
+
+                    window.onload = function() {
+                         var ctx = document.getElementById("canvas").getContext("2d");
+                         window.myBar = new Chart(ctx, {
+                             type: 'bar',
+                             data: barChartData,
+                             options: {
+                                 elements: {
+                                     rectangle: {
+                                         borderWidth: 2,
+                                         borderColor: 'rgb(0, 255, 0)',
+                                         borderSkipped: 'bottom'
+                                     }
+                                 },
+                                 responsive: true,
+                                 title: {
+                                     display: true,
+                                     text: 'Brands and their models'
+                                 }
+                             }
+                         });
+
+                     };
+                    </script>
+
                 </div>
 
             </div>
@@ -60,6 +86,7 @@ var barChartData = {
     </div>
 
 </div>
+
 </div>
 
 @endsection

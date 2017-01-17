@@ -20,8 +20,10 @@
     @else {{-- If the user is signed in, show all of the below, as extra content. --}}
 
       <div class="functions">
+        <h3>Admin</h3>
+        <div class="form">
       <form method="GET" action="/watches/{{$watch->id}}/addmodel"> {{-- Create a form which passes through the current watch brands id, allowing the user to add a model to this brand. --}}
-        <button id="button" type="submit">Add a new model</button> {{-- Create a button which submits the form. --}}
+        <button type="submit">Add a new model</button> {{-- Create a button which submits the form. --}}
       </form>
 
       @if (count($errors)) {{-- If there are any errors from the forms validation, output these errors in a list to the user. --}}
@@ -37,8 +39,9 @@
       <form method="POST" action="/watches/{{ $watch->id }}/delete"> {{-- Add a form to be able to delete the current brand by it's ID. --}}
         {{ method_field('PATCH') }} {{-- Patch through the request to the database, in order to change the database. --}}
         {{ csrf_field() }} {{-- Add a hidden token for token validation. --}}
-        <button id="button" type="submit">Delete brand</button> {{-- Submit the form. --}}
+        <button type="submit">Delete brand</button> {{-- Submit the form. --}}
       </form>
+    </div>
     </div>
       @endif
 @endsection

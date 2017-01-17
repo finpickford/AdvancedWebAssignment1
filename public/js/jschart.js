@@ -1,8 +1,8 @@
 var year = ['2013','2014','2015', '2016'];
 
-var data_omega = omega;
+var data_omega = <?php echo $omega; ?>;
 
-var data_rolex = rolex;
+var data_rolex = <?php echo $rolex; ?>;
 
 
 var barChartData = {
@@ -26,49 +26,5 @@ var barChartData = {
         data: data_rolex
 
     }]
-
-};
-
-
-window.onload = function() {
-
-    var ctx = document.getElementById("canvas").getContext("2d");
-
-    window.myBar = new Chart(ctx, {
-
-        type: 'bar',
-
-        data: barChartData,
-
-        options: {
-
-            elements: {
-
-                rectangle: {
-
-                    borderWidth: 2,
-
-                    borderColor: 'rgb(0, 255, 0)',
-
-                    borderSkipped: 'bottom'
-
-                }
-
-            },
-
-            responsive: true,
-
-            title: {
-
-                display: true,
-
-                text: 'Yearly Website Visitor'
-
-            }
-
-        }
-
-    });
-
 
 };

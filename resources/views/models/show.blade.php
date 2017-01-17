@@ -11,8 +11,6 @@
       Model number: {{$model->model_number}} {{-- Output the model objects mobel number. --}}
     </uL>
 
-    <script type="text/javascript" src="/js/tabs.js"></script> {{-- Reference a js script for a tabbed feature. --}}
-
     <div class="info"> {{-- Create a class for the info of the model. --}}
       <ul class="tab"> {{-- Create a class to hold the tabs. --}}
         {{-- Reference each section of the tabbed feature, and send it to a js function when clicked. --}}
@@ -35,25 +33,31 @@
         </p>
       </div>
     </div>
+
+    <script type="text/javascript" src="/js/tabs.js"></script> {{-- Reference a js script for a tabbed feature. --}}
 </div>
 
     @if (Auth::guest()) {{-- If the user is not signed in, run the above. --}}
     @else {{-- If the user is signed in, run the below. --}}
 
       <div class="functions">
+        <h3>Admin</h3>
+        <div class="form">
       <form method="GET" action="/models/{{ $model->id }}/edit"> {{-- Create a form to edit the current model, passing through it's ID. --}}
-        <button id="button" type="submit">Edit model</button> {{-- Submit the form. --}}
+        <button type="submit">Edit model</button> {{-- Submit the form. --}}
       </form>
       <br>
 
       <form method="POST" action="/models/{{ $model->id }}/delete"> {{-- Create a form to delete the model, passing through the model ID. --}}
         {{ method_field('PATCH') }} {{-- Patch through the request to the database. --}}
         {{ csrf_field() }} {{-- Pass through a hidden token for toekn validation. --}}
-        <button id="button" type="submit">Delete model</button> {{-- Submit the form . --}}
+        <button type="submit">Delete model</button> {{-- Submit the form . --}}
       </form>
       <br>
 
+
       <a href="/users/{{ $model->user_id }}">Added by: {{ $model->user->name }}</a> {{-- Show a hyperlink to the username assosiated with the model, and pass through the user ID. --}}
+</div>
 </div>
 
 

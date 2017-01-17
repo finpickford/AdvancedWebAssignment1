@@ -28,8 +28,43 @@ class PagesController extends Controller
     // }
 
     public function home(){
-          return view('welcome');
+
+
+        $omega = Models::select(DB::raw("count(*) as count", "watch_id"))
+
+            ->orderBy("watch_id")
+
+            ->groupBy(DB::raw("(watch_id)"))
+
+            ->where('watch_id', '=', 2)
+
+            ->get()->toArray();
+
+        $omega = array_column($omega, 'count');
+
+          $rolex = Models::select(DB::raw("count(*) as count", "watch_id"))
+
+              ->orderBy("watch_id")
+
+              ->groupBy(DB::raw("(watch_id)"))
+
+              ->where('watch_id', '=', 10)
+
+              ->get()->toArray();
+
+          $rolex = array_column($rolex, 'count');
+
+
+
+
+          return view('welcome')
+
+                  ->with('omega',json_encode($omega,JSON_NUMERIC_CHECK))
+                  ->with('rolex',json_encode($rolex,JSON_NUMERIC_CHECK));
+
       }
+
+  
 
     public function about(){
           return view('about');
@@ -39,11 +74,23 @@ class PagesController extends Controller
 
 {
 
+  $omega = Models::select(DB::raw("count(*) as count", "watch_id"))
+
+      ->orderBy("watch_id")
+
+      ->groupBy(DB::raw("(watch_id)"))
+
+      ->where('watch_id', '=', 2)
+
+      ->get()->toArray();
+
+  $omega = array_column($omega, 'count');
+
     $rolex = Models::select(DB::raw("count(*) as count", "watch_id"))
 
-        ->orderBy("created_at")
+        ->orderBy("watch_id")
 
-        ->groupBy(DB::raw("(created_at)"))
+        ->groupBy(DB::raw("(watch_id)"))
 
         ->where('watch_id', '=', 10)
 
@@ -53,25 +100,11 @@ class PagesController extends Controller
 
 
 
-    $omega = Models::select(DB::raw("count(*) as count", "watch_id"))
 
-        ->orderBy("created_at")
+    return view('welcome')
 
-        ->groupBy(DB::raw("(created_at)"))
-
-        ->where('watch_id', '=', 2)
-
-        ->get()->toArray();
-
-    $omega = array_column($omega, 'count');
-
-
-
-    return view('chartjs')
-
-            ->with('rolex',json_encode($rolex,JSON_NUMERIC_CHECK))
-
-            ->with('omega',json_encode($omega,JSON_NUMERIC_CHECK));
+            ->with('omega',json_encode($omega,JSON_NUMERIC_CHECK))
+            ->with('rolex',json_encode($rolex,JSON_NUMERIC_CHECK));
 
 }
 
