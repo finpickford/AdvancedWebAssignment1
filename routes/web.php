@@ -12,6 +12,8 @@
 */
 //
 
+Route::get('chartjs', 'PagesController@chartjs');
+
   Route::get('/about', 'PagesController@about');
 
   Route::get('/begin', function () {

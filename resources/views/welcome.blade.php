@@ -17,14 +17,6 @@
 
 <br>
 
-<script type="text/javascript" src="/js/fusioncharts.js"></script>
-
-<script type="text/javascript" src="/js/fusioncharts.charts.js"></script>
-
-<script type="text/javascript" src="js/jscharts.js"></script>
-
-<div id="top-companies">A beautiful chart is on its way.</div>
-
   </div>
 </div>
 
