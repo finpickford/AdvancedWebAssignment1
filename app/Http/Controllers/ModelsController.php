@@ -68,7 +68,9 @@ class ModelsController extends Controller
 
   public function edit(Models $model)
   {
-    return view('models.edit', compact('model'));
+    $comments = Comments::where('models_id', 'LIKE', "$model->id")->get();
+
+    return view('models.edit', compact('model', 'comments'));
   }
 
   public function update(Request $request, Models $model)
@@ -83,7 +85,9 @@ class ModelsController extends Controller
 
     $model->update($request->all());
 
-    return view('models.show', compact('model'));
+    $comments = Comments::where('models_id', 'LIKE', "$model->id")->get();
+
+    return view('models.show', compact('model', 'comments'));
   }
 
   public function delete(Request $request, Models $model)

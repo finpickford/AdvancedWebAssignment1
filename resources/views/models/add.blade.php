@@ -9,6 +9,7 @@
 </div>
 
 <div class="content">
+  <div class="form">
   <form method="POST" action="/watches/{{ $watch->id }}/models">
 
     {{ csrf_field() }}
@@ -21,7 +22,7 @@
   <textarea name="case_size" placeholder="Case size">{{ old('case_size') }}</textarea>
   <textarea name="dial_colour" placeholder="Dial colour">{{ old('dial_colour') }}</textarea>
   <textarea name="movement_type" placeholder="Movement type">{{ old('movement_type') }}</textarea>
-  <textarea name="case_material" placeholder="Materail">{{ old('case_material') }}</textarea>
+  <textarea name="case_material" placeholder="Material">{{ old('case_material') }}</textarea>
 
   <button type="submit">Add model</button>
   </form>
@@ -36,6 +37,7 @@
     </ul>
   @endforeach
   @endif
+  </div>
 </div>
 @endif
 

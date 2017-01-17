@@ -9,6 +9,59 @@ html, body {
         overflow-x:hidden;
     }
 
+    li {
+      list-style: none;
+    }
+
+    a:hover {
+      color: #e67e22;
+    }
+
+    #button {
+    border-radius: 28px;
+    color: #ffffff;
+    font-size: 16px;
+    background: #34495e;
+    padding: 5px 20px;
+    text-decoration: none;
+}
+
+#button:hover {
+  background: #3498db;
+  text-decoration: none;
+}
+
+  .form textarea, select, #email, #password, #password-confirm, #name {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form button {
+    width: 100%;
+    background-color: #2980b9;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: #3498db;
+}
+
+.form {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
     ul.tab {
       list-style-type: none;
       margin: 0;
@@ -101,8 +154,20 @@ ul.tab li a:focus, .active {background-color: #ccc;}
       font-weight: bold;
     }
 
-
-#myChart { height:100%; width:100%;}
+/*#myChart { height:100%; width:100%;}*/
+  .functions {
+    padding: 15px 0;
+    text-align: center;
+    clear: both;
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #CCC;
+    width: 80%;
+    margin: 10px auto;
+    max-width: 1024px;
+    color: #2c3e50;
+    font-weight: bold;
+  }
 
   .content {
     padding: 15px 0;
@@ -115,7 +180,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
     margin: 10px auto;
     max-width: 1024px;
     color: #2c3e50;
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 .comments {
@@ -132,20 +197,12 @@ ul.tab li a:focus, .active {background-color: #ccc;}
   font-weight: bolder;
 }
 
-.comments h3 {
-  padding: 5px 0;
-  text-align: center;
-  background-color: #2980b9;
-  width: 100%;
-  color: #ffffff;
-  font-weight: bold;
-}
 
-.heading.search input {
+.search #search {
   border-radius: 60px;
-  width: 500px;
-  height: 40px;
-  padding: 10px;
+  width: 245px;
+  height: 30px;
+  padding-left: 10px;
   font-size: 16px;
 }
 

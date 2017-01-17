@@ -6,6 +6,7 @@
   </div>
 
   <div class="content">
+    <div class="form">
     <form method="POST" action={{ url('/register') }}>
 
     {{ csrf_field() }}
@@ -52,5 +53,6 @@
 
       <button type="submit" class="btn btn-primary">Register</button>
     </form>
+  </div>
   </div>
 @endsection
