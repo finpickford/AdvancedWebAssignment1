@@ -29,38 +29,7 @@ class PagesController extends Controller
 
     public function home(){
 
-        $omega = Models::select(DB::raw("count(*) as count", "watch_id"))
-
-            ->orderBy("watch_id")
-
-            ->groupBy(DB::raw("(watch_id)"))
-
-            ->where('watch_id', '=', 2)
-
-            ->get()->toArray();
-
-        $omega = array_column($omega, 'count');
-
-          $rolex = Models::select(DB::raw("count(*) as count", "watch_id"))
-
-              ->orderBy("watch_id")
-
-              ->groupBy(DB::raw("(watch_id)"))
-
-              ->where('watch_id', '=', 10)
-
-              ->get()->toArray();
-
-          $rolex = array_column($rolex, 'count');
-
-
-
-
-          return view('welcome')
-
-                  ->with('omega',json_encode($omega,JSON_NUMERIC_CHECK))
-                  ->with('rolex',json_encode($rolex,JSON_NUMERIC_CHECK));
-
+          return view('welcome');
 
       }
 
@@ -74,13 +43,31 @@ class PagesController extends Controller
 
 {
 
+  // $brands = Models::select(DB::raw("count(*) as count", "watch_id"))
+  //
+  //     ->orderBy("watch_id")
+  //
+  //     ->groupBy(DB::raw("(watch_id)"))
+  //
+  //     ->get()->toArray();
+  //
+  // $brands = array_column($brands, 'count');
+
+  // $users = Comments::select(DB::raw("count(*) as count", "user_id"))
+  //
+  //     ->orderBy("user_id")
+  //
+  //     ->groupBy(DB::raw("(user_id)"))
+  //
+  //     ->get()->toArray();
+  //
+  // $users = array_column($users, 'count');
+
   $brands = Models::select(DB::raw("count(*) as count", "watch_id"))
-
-      ->orderBy("watch_id")
-
-      ->groupBy(DB::raw("(watch_id)"))
-
-      ->get()->toArray();
+  ->join('watches', 'models.watch_id','=','watches.id')
+  ->orderBy("watches.brand")
+  ->groupBy("watches.brand")
+  ->get()->toArray();
 
   $brands = array_column($brands, 'count');
 
@@ -88,6 +75,7 @@ class PagesController extends Controller
 
 
             ->with('brands',json_encode($brands,JSON_NUMERIC_CHECK));
+            // ->with('users',json_encode($users,JSON_NUMERIC_CHECK));
 
 }
 

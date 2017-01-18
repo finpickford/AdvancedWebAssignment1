@@ -28,7 +28,7 @@
                           	labels : data_brands,
                           	datasets : [
                           		{
-                          			fillColor : "rgba(252,233,79,0.5)",
+                          			fillColor : "rgba(46, 204, 113, 1)",
                           			strokeColor : "rgba(82,75,25,1)",
                           			pointColor : "rgba(166,152,51,1)",
                           			pointStrokeColor : "#fff",
@@ -36,9 +36,6 @@
                           		}
                           	]
                           }
-
-
-
 
                     window.onload = function() {
                          var ctx = document.getElementById("canvas").getContext("2d");
@@ -70,7 +67,6 @@
                                 }
                              }
                          });
-
                      };
 
                     </script>
