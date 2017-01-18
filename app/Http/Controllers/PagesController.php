@@ -63,18 +63,21 @@ class PagesController extends Controller
   //
   // $users = array_column($users, 'count');
 
-  $brands = Models::select(DB::raw("count(*) as count", "watch_id"))
+  $brands = Models::select(DB::raw("count(watch_id) as count"),("watches.brand as brand"))
   ->join('watches', 'models.watch_id','=','watches.id')
   ->orderBy("watches.brand")
-  ->groupBy("watches.brand")
-  ->get()->toArray();
+  ->groupBy("watches.brand")->get()->toArray();
+   $brands = array_column($brands, 'count');
 
-  $brands = array_column($brands, 'count');
+   $label = array_column($brands, 'brand');
+
 
     return view('chartjs')
 
 
             ->with('brands',json_encode($brands,JSON_NUMERIC_CHECK));
+            // ->with('labels' ,json_encode($labels));
+
             // ->with('users',json_encode($users,JSON_NUMERIC_CHECK));
 
 }
