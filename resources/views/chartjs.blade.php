@@ -22,36 +22,23 @@
 <script type="text/javascript" src="https://github.com/chartjs/Chart.js/releases/download/v2.4.0/Chart.bundle.js"></script>
                     <script>
 
-                    var data_omega = <?php echo $omega; ?>;
-                    var data_rolex = <?php echo $rolex; ?>;
+                    var data_brands = <?php echo $brands; ?>;
+
+                        var barChartData = {
+                          	labels : data_brands,
+                          	datasets : [
+                          		{
+                          			fillColor : "rgba(252,233,79,0.5)",
+                          			strokeColor : "rgba(82,75,25,1)",
+                          			pointColor : "rgba(166,152,51,1)",
+                          			pointStrokeColor : "#fff",
+                          			data : data_brands
+                          		}
+                          	]
+                          }
 
 
-                    var barChartData = {
 
-
-
-                        datasets: [
-                          {
-
-                              label: 'omega',
-
-                              backgroundColor: "rgba(151,187,205,0.5)",
-
-                              data: data_omega
-
-                          },
-
-                        {
-
-                            label: 'rolex',
-
-                            backgroundColor: "rgba(151,187,205,0.5)",
-
-                            data: data_rolex
-
-                        }]
-
-                    };
 
                     window.onload = function() {
                          var ctx = document.getElementById("canvas").getContext("2d");
@@ -70,11 +57,22 @@
                                  title: {
                                      display: true,
                                      text: 'Brands and their models'
-                                 }
+                                 },
+                                 scales: {
+                                    yAxes: [{
+                                        display: true,
+                                        ticks: {
+                                            suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                                            // OR //
+                                            beginAtZero: true   // minimum value will be 0.
+                                        }
+                                    }]
+                                }
                              }
                          });
 
                      };
+
                     </script>
 
                 </div>

@@ -44,7 +44,7 @@
 
                                   label: 'omega',
 
-                                  backgroundColor: "rgba(151,187,205,0.5)",
+                                  backgroundColor: "rgba(46, 204, 113, 0.5)",
 
                                   data: data_omega
 
@@ -54,7 +54,7 @@
 
                                 label: 'rolex',
 
-                                backgroundColor: "rgba(151,187,205,0.5)",
+                                backgroundColor: "rgba(217, 30, 24, 0.5)",
 
                                 data: data_rolex
 
@@ -71,7 +71,7 @@
                                      elements: {
                                          rectangle: {
                                              borderWidth: 2,
-                                             borderColor: 'rgb(0, 255, 0)',
+                                             borderColor: 'rgb(34, 49, 63)',
                                              borderSkipped: 'bottom'
                                          }
                                      },
@@ -79,7 +79,17 @@
                                      title: {
                                          display: true,
                                          text: 'Brands and their models'
-                                     }
+                                     },
+                                     scales: {
+                                        yAxes: [{
+                                            display: true,
+                                            ticks: {
+                                                suggestedMin: 0,    // minimum will be 0, unless there is a lower value.
+                                                // OR //
+                                                beginAtZero: true   // minimum value will be 0.
+                                            }
+                                        }]
+                                    }
                                  }
                              });
 

@@ -29,7 +29,6 @@ class PagesController extends Controller
 
     public function home(){
 
-
         $omega = Models::select(DB::raw("count(*) as count", "watch_id"))
 
             ->orderBy("watch_id")
@@ -62,9 +61,10 @@ class PagesController extends Controller
                   ->with('omega',json_encode($omega,JSON_NUMERIC_CHECK))
                   ->with('rolex',json_encode($rolex,JSON_NUMERIC_CHECK));
 
+
       }
 
-  
+
 
     public function about(){
           return view('about');
@@ -74,37 +74,20 @@ class PagesController extends Controller
 
 {
 
-  $omega = Models::select(DB::raw("count(*) as count", "watch_id"))
+  $brands = Models::select(DB::raw("count(*) as count", "watch_id"))
 
       ->orderBy("watch_id")
 
       ->groupBy(DB::raw("(watch_id)"))
 
-      ->where('watch_id', '=', 2)
-
       ->get()->toArray();
 
-  $omega = array_column($omega, 'count');
+  $brands = array_column($brands, 'count');
 
-    $rolex = Models::select(DB::raw("count(*) as count", "watch_id"))
-
-        ->orderBy("watch_id")
-
-        ->groupBy(DB::raw("(watch_id)"))
-
-        ->where('watch_id', '=', 10)
-
-        ->get()->toArray();
-
-    $rolex = array_column($rolex, 'count');
+    return view('chartjs')
 
 
-
-
-    return view('welcome')
-
-            ->with('omega',json_encode($omega,JSON_NUMERIC_CHECK))
-            ->with('rolex',json_encode($rolex,JSON_NUMERIC_CHECK));
+            ->with('brands',json_encode($brands,JSON_NUMERIC_CHECK));
 
 }
 
