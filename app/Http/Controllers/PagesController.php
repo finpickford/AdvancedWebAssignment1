@@ -67,7 +67,7 @@ class PagesController extends Controller
   ->join('watches', 'models.watch_id','=','watches.id')
   ->orderBy("watches.brand")
   ->groupBy("watches.brand")->get()->toArray();
-   $brands = array_column($brands, 'count');
+   $counter = array_column($brands, 'count');
 
    $label = array_column($brands, 'brand');
 
@@ -75,8 +75,8 @@ class PagesController extends Controller
     return view('chartjs')
 
 
-            ->with('brands',json_encode($brands,JSON_NUMERIC_CHECK));
-            // ->with('labels' ,json_encode($labels));
+            ->with('counter',json_encode($counter,JSON_NUMERIC_CHECK))
+            ->with('label',json_encode($label,JSON_NUMERIC_CHECK));
 
             // ->with('users',json_encode($users,JSON_NUMERIC_CHECK));
 

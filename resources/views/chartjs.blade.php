@@ -22,17 +22,19 @@
 <script type="text/javascript" src="https://github.com/chartjs/Chart.js/releases/download/v2.4.0/Chart.bundle.js"></script>
                     <script>
 
-                    var data_brands = <?php echo $brands; ?>;
+                    var data = <?php echo $counter; ?>;
+                    var labels = <?php echo $label; ?>;
+
 
                         var barChartData = {
-                          	labels : data_brands,
+                          	labels : labels,
                           	datasets : [
                           		{
                           			fillColor : "rgba(46, 204, 113, 1)",
                           			strokeColor : "rgba(82,75,25,1)",
                           			pointColor : "rgba(166,152,51,1)",
                           			pointStrokeColor : "#fff",
-                          			data : data_brands
+                          			data : data
                           		}
                           	]
                           }

@@ -28,4 +28,5 @@ class Models extends Model
       return $this->hasOne(Specifications::class);
     }
 
+
 }
