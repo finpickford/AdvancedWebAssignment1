@@ -75,7 +75,7 @@
               <li><a href=/>Home</a></li>
               <li><a href=/watches>Brands</a></li>
               <li><a href=/about>About</a></li>
-              {{-- <li><a href=/comments>Comments</a></li> --}}
+              <li><a href=/dashboard>Dashboard</a></li>
             </ul>
 
         </div>

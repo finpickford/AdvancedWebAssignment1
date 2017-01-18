@@ -22,64 +22,45 @@ class PagesController extends Controller
 {
     // use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function home()
+    {
+      return view('welcome');
+    }
 
-    public function home(){
+    public function about()
+    {
+      return view('about');
+    }
 
-          return view('welcome');
+    public function dashboard()
+    {
+      $usersComments = Comments::select(DB::raw("count(user_id) as count"),("users.name as name"))
+      ->join('users', 'comments.user_id','=','users.id')
+      ->orderBy("users.name")
+      ->groupBy("users.name")->get()->toArray();
+      $counterUserComments = array_column($usersComments, 'count');
+      $labelUserComments = array_column($usersComments, 'name');
 
-      }
+      $brands = Models::select(DB::raw("count(watch_id) as count"),("watches.brand as brand"))
+      ->join('watches', 'models.watch_id','=','watches.id')
+      ->orderBy("watches.brand")
+      ->groupBy("watches.brand")->get()->toArray();
+      $counter = array_column($brands, 'count');
+      $label = array_column($brands, 'brand');
 
+      $userModels = Models::select(DB::raw("count(user_id) as count"),("users.name as name"))
+      ->join('users', 'models.user_id','=','users.id')
+      ->orderBy("users.name")
+      ->groupBy("users.name")->get()->toArray();
+      $counterUserModels = array_column($userModels, 'count');
+      $labelUserModels = array_column($userModels, 'name');
 
-
-    public function about(){
-          return view('about');
-      }
-
-      public function chartjs()
-
-{
-
-  // $brands = Models::select(DB::raw("count(*) as count", "watch_id"))
-  //
-  //     ->orderBy("watch_id")
-  //
-  //     ->groupBy(DB::raw("(watch_id)"))
-  //
-  //     ->get()->toArray();
-  //
-  // $brands = array_column($brands, 'count');
-
-  // $users = Comments::select(DB::raw("count(*) as count", "user_id"))
-  //
-  //     ->orderBy("user_id")
-  //
-  //     ->groupBy(DB::raw("(user_id)"))
-  //
-  //     ->get()->toArray();
-  //
-  // $users = array_column($users, 'count');
-
-  $brands = Models::select(DB::raw("count(watch_id) as count"),("watches.brand as brand"))
-  ->join('watches', 'models.watch_id','=','watches.id')
-  ->orderBy("watches.brand")
-  ->groupBy("watches.brand")->get()->toArray();
-   $counter = array_column($brands, 'count');
-
-   $label = array_column($brands, 'brand');
-
-
-    return view('chartjs')
-
-
-            ->with('counter',json_encode($counter,JSON_NUMERIC_CHECK))
-            ->with('label',json_encode($label,JSON_NUMERIC_CHECK));
-
-            // ->with('users',json_encode($users,JSON_NUMERIC_CHECK));
-
-}
-
+      return view('dashboard')
+      ->with('counterUserComments',json_encode($counterUserComments,JSON_NUMERIC_CHECK))
+      ->with('labelUserComments',json_encode($labelUserComments,JSON_NUMERIC_CHECK))
+      ->with('counterUserModels',json_encode($counterUserModels,JSON_NUMERIC_CHECK))
+      ->with('labelUserModels',json_encode($labelUserModels,JSON_NUMERIC_CHECK))
+      ->with('counter',json_encode($counter,JSON_NUMERIC_CHECK))
+      ->with('label',json_encode($label,JSON_NUMERIC_CHECK));
+    }
 }

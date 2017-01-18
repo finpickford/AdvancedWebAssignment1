@@ -169,7 +169,7 @@ ul.tab li a:focus, .active {background-color: #ccc;}
     font-weight: bold;
   }
 
-  .content {
+  .content, .charts, .comments {
     padding: 15px 0;
     text-align: center;
     clear: both;
@@ -182,21 +182,6 @@ ul.tab li a:focus, .active {background-color: #ccc;}
     color: #2c3e50;
     font-weight: bold;
 }
-
-.comments {
-  padding: 15px 0;
-  text-align: center;
-  clear: both;
-  background-color: white;
-  padding: 15px;
-  border: 1px solid #CCC;
-  width: 80%;
-  margin: 10px auto;
-  max-width: 1024px;
-  color: #2c3e50;
-  font-weight: bolder;
-}
-
 
 .search #search {
   border-radius: 60px;

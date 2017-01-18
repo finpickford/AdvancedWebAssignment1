@@ -12,7 +12,7 @@
 */
 //
 
-Route::get('chartjs', 'PagesController@chartjs');
+Route::get('dashboard', 'PagesController@dashboard');
 
   Route::get('/about', 'PagesController@about');
 
