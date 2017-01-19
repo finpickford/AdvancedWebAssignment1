@@ -1,28 +1,31 @@
-@extends('layout')
+@extends('layout') {{-- Reference the layout template for the page. --}}
 
+@section('content') {{-- Reference the content section in the layout template. --}}
+  <div class="heading"> {{-- Heading class for page heading. --}}
+    <h1>Dashboard</h1>
+  </div>
 
-@section('content')
-
-  <div class="charts">
+  <div class="charts"> {{--Div class for the first chart to be displayed. --}}
     <h3>Brands with the most models</h3>
     <canvas id="canvasBrands" height="280" width="600"></canvas>
   </div>
 
-  <div class="charts">
+  <div class="charts"> {{--Div class for the second chart to be displayed. --}}
     <h3>Users with the most comments</h3>
     <canvas id="canvasComments" height="280" width="600"></canvas>
   </div>
 
   <div class="charts">
-    <h3>Users who've added the most models</h3>
+    <h3>Users who've added the most models</h3> {{--Div class for the third chart to be displayed. --}}
     <canvas id="canvasUserModels" height="280" width="600"></canvas>
   </div>
 
+{{-- Reference the external chart js script from the github location given. --}}
   <script type="text/javascript" src="https://github.com/chartjs/Chart.js/releases/download/v2.4.0/Chart.bundle.js"></script>
   <script>
-      var dataBrands = <?php echo $counter; ?>;
-      var labelBrands = <?php echo $label; ?>;
-      var dataComments = <?php echo $counterUserComments; ?>;
+      var dataBrands = <?php echo $counterBrands; ?>; // Create a variable for the brand data. Reference the counter brands variable.
+      var labelBrands = <?php echo $labelBrands; ?>; // Create a variable for the brand labels. Reference the brand labels variable.
+      var dataComments = <?php echo $counterUserComments; ?>; // Create a variable for the comments data. Reference the user comments variable.
       var labelComments = <?php echo $labelUserComments; ?>;
       var dataUserModels = <?php echo $counterUserModels; ?>;
       var labelUserModels = <?php echo $labelUserModels; ?>;

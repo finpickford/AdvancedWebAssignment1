@@ -45,8 +45,8 @@ class PagesController extends Controller
       ->join('watches', 'models.watch_id','=','watches.id')
       ->orderBy("watches.brand")
       ->groupBy("watches.brand")->get()->toArray();
-      $counter = array_column($brands, 'count');
-      $label = array_column($brands, 'brand');
+      $counterBrands = array_column($brands, 'count');
+      $labelBrands = array_column($brands, 'brand');
 
       $userModels = Models::select(DB::raw("count(user_id) as count"),("users.name as name"))
       ->join('users', 'models.user_id','=','users.id')
@@ -60,7 +60,7 @@ class PagesController extends Controller
       ->with('labelUserComments',json_encode($labelUserComments,JSON_NUMERIC_CHECK))
       ->with('counterUserModels',json_encode($counterUserModels,JSON_NUMERIC_CHECK))
       ->with('labelUserModels',json_encode($labelUserModels,JSON_NUMERIC_CHECK))
-      ->with('counter',json_encode($counter,JSON_NUMERIC_CHECK))
-      ->with('label',json_encode($label,JSON_NUMERIC_CHECK));
+      ->with('counterBrands',json_encode($counterBrands,JSON_NUMERIC_CHECK))
+      ->with('labelBrands',json_encode($labelBrands,JSON_NUMERIC_CHECK));
     }
 }
