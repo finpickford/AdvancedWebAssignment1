@@ -26,7 +26,7 @@
       var dataBrands = <?php echo $counterBrands; ?>; // Create a variable for the brand data. Reference the counter brands variable.
       var labelBrands = <?php echo $labelBrands; ?>; // Create a variable for the brand labels. Reference the brand labels variable.
       var dataComments = <?php echo $counterUserComments; ?>; // Create a variable for the comments data. Reference the user comments variable.
-      var labelComments = <?php echo $labelUserComments; ?>;
+      var labelComments = <?php echo $labelUserComments; ?>; // Create a variable for the comments label. Reference the label user comments variable.
       var dataUserModels = <?php echo $counterUserModels; ?>;
       var labelUserModels = <?php echo $labelUserModels; ?>;
 
