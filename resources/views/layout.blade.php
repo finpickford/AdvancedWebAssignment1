@@ -10,9 +10,9 @@
             <title>WristWatch</title>
 
             {{-- <script type="text/javascript" src="/js/zingchart.min.js"></script> --}}
-            <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
+            {{-- <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
           <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-          ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];</script>
+          ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];</script> --}}
 
 
             <!-- Fonts -->
@@ -63,8 +63,8 @@
           <div class="search">
               <form method="POST" action="/watches/search">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="search" name="watchsearch" placeholder="Search for a brand">
-                  <button type="submit">Search</button>
+                <input type="search" id="search" name="watchsearch" placeholder="Search for a brand">
+                  <button id="button" type="submit">Search</button>
               </form>
             </div>
           </div>
@@ -75,7 +75,7 @@
               <li><a href=/>Home</a></li>
               <li><a href=/watches>Brands</a></li>
               <li><a href=/about>About</a></li>
-              {{-- <li><a href=/comments>Comments</a></li> --}}
+              <li><a href=/dashboard>Dashboard</a></li>
             </ul>
 
         </div>

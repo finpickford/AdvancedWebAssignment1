@@ -16,14 +16,6 @@ class CommentsController extends Controller
 
 {
 
-  // public function index()
-  //
-  // {
-  //   $comments = Comments::all();
-  //
-  //   return view('comments.index', compact('comments'));
-  // }
-
   public function store(Request $request, Models $model)
   {
 

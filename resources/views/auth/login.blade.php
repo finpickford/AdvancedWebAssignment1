@@ -5,6 +5,7 @@
     <h1>Login</h1>
   </div>
 <div class="content">
+  <div class="form">
                     <form method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
@@ -49,6 +50,7 @@
                                 </a>
                             </div>
                         </div>
+                      </div>
 
 </div>
 

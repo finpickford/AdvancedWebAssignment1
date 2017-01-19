@@ -12,6 +12,8 @@
 */
 //
 
+Route::get('dashboard', 'PagesController@dashboard');
+
   Route::get('/about', 'PagesController@about');
 
   Route::get('/begin', function () {
