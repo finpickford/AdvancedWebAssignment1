@@ -7,7 +7,7 @@
 
   <div class="content">
     <div class="form">
-    <form method="POST" action={{ url('/register') }}>
+    <form method="POST" action="{{ url('/register') }}">
 
     {{ csrf_field() }}
 

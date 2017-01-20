@@ -1,82 +1,84 @@
-@extends('layout') {{-- Reference the layout template. --}}
+@extends('layout')
 
-@section('content') {{-- Reference the content section within the layout template. --}}
-  <div class="heading"> {{-- Create a heading class for the page's heading. --}}
-    <h1> {{ $model->model_name }} </h1> {{-- Output the model objects model name from the model table.. --}}
-    <h3>£{{ $model->price }}</h3> {{-- Output the model objects price from the model table. --}}
+@section('content')
+
+  <div class="heading"> {{-- Page heading. --}}
+    <h1> {{ $model->model_name }} </h1> {{-- Show model name. --}}
+    <h3>£{{ $model->price }}</h3> {{-- Show model price. --}}
   </div>
 
-  <div class="content"> {{-- Create a class for the page's content. --}}
+  <div class="content"> {{-- Page content. --}}
     <ul>
-      Model number: {{$model->model_number}} {{-- Output the model objects mobel number. --}}
+      Model number: {{$model->model_number}} {{-- Show the model number. --}}
     </uL>
 
-    <div class="info"> {{-- Create a class for the info of the model. --}}
-      <ul class="tab"> {{-- Create a class to hold the tabs. --}}
-        {{-- Reference each section of the tabbed feature, and send it to a js function when clicked. --}}
+    <div class="info"> {{-- Models info. --}}
+      <ul class="tab"> {{-- Tabs system for the info. --}}
+        {{-- Create a tab system to go between details and specifications. --}}
         <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Details')" id="defaultOpen">Detials</a></li>
         <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Specifications')">Specifications</a></li>
       </ul>
 
-      <div id="Details" class="tabcontent"> {{-- Create a div id for the details section of the tabs. --}}
+      <div id="Details" class="tabcontent"> {{-- Details tab section. --}}
         <h3>Details</h3>
-        <p>{{$model->details}}</p> {{-- Output the model objects details from the model table. --}}
+        <p>{{$model->details}}</p> {{-- Model details. --}}
       </div>
 
-      <div id="Specifications" class="tabcontent"> {{-- Create a div id for the models specfications section of the tabs. --}}
+      <div id="Specifications" class="tabcontent"> {{-- Specifications tab section. --}}
         <h3> Specification </h3>
         <p>
-          Case size: {{$model->specifications->case_size}} <br> {{-- Output the models case size from the specifications table, by running the specifactions function in the models model. --}}
-          Dial colour: {{$model->specifications->dial_colour}} <br> {{-- Output the models dial colour from the specifications table, by running the specifactions function in the models model. --}}
-          Movement type: {{$model->specifications->movement_type}} <br> {{-- Output the models movement from the specifications table, by running the specifactions function in the models model. --}}
-          Case material: {{$model->specifications->case_material}} {{-- Output the models material from the specifications table, by running the specifactions function in the models model. --}}
+          Case size: {{$model->specifications->case_size}} <br> {{-- Model case size. --}}
+          Dial colour: {{$model->specifications->dial_colour}} <br> {{-- Model dial colour. --}}
+          Movement type: {{$model->specifications->movement_type}} <br> {{-- Model movement type. --}}
+          Case material: {{$model->specifications->case_material}} {{-- Model case material. --}}
         </p>
+      </div>
+      <br>
+      <a href="/users/{{ $model->user_id }}">Added by: {{ $model->user->name }}</a> {{-- Model username as hyperlink. --}}
+      </div>
       </div>
     </div>
 
-    <script type="text/javascript" src="/js/tabs.js"></script> {{-- Reference a js script for a tabbed feature. --}}
+    <script type="text/javascript" src="/js/tabs.js"></script> {{-- External tab script. --}}
 </div>
 
-    @if (Auth::guest()) {{-- If the user is not signed in, run the above. --}}
-    @else {{-- If the user is signed in, run the below. --}}
+    @if (Auth::guest()) {{-- User authentication. --}}
+
+    @elseif (Auth::user()->id == $model->user->id)
 
       <div class="functions">
         <h3>Admin</h3>
         <div class="form">
       <form method="GET" action="/models/{{ $model->id }}/edit"> {{-- Create a form to edit the current model, passing through it's ID. --}}
-        <button type="submit">Edit model</button> {{-- Submit the form. --}}
+        <button type="submit">Edit model</button>
       </form>
       <br>
 
       <form method="POST" action="/models/{{ $model->id }}/delete"> {{-- Create a form to delete the model, passing through the model ID. --}}
-        {{ method_field('PATCH') }} {{-- Patch through the request to the database. --}}
-        {{ csrf_field() }} {{-- Pass through a hidden token for toekn validation. --}}
-        <button type="submit">Delete model</button> {{-- Submit the form . --}}
+        {{ method_field('PATCH') }}
+        {{ csrf_field() }}
+        <button type="submit">Delete model</button>
+      </form>
+
+    @else
+
+      <div class="comments"> {{-- Comments section. --}}
+      <h3>Comments</h3>
+      <div class="form">
+      @foreach ($comments as $com) {{-- Show each comment in the foreach. --}}
+      <ul>
+        <li>{{ $com->comment }} - {{ $com->user->name}}</li> {{-- Out put the comments username. --}}
+      </ul>
+      @endforeach
+
+      <form method="POST" action="/models/{{ $model->id }}/comment"> {{-- Add a comment. --}}
+      {{ csrf_field() }}
+      <textarea name="comment" placeholder="Comment">{{ old('comment') }}</textarea>
+      <button type="submit">Leave comment</button>
       </form>
       <br>
-
-
-      <a href="/users/{{ $model->user_id }}">Added by: {{ $model->user->name }}</a> {{-- Show a hyperlink to the username assosiated with the model, and pass through the user ID. --}}
-</div>
-</div>
-
-
-  <div class="comments"> {{-- Create a class for the comments section of the page. --}}
-    <h3>Comments</h3>
-    <div class="form">
-    @foreach ($comments as $com) {{-- Foreach comment object, create a new variable as com. --}}
-      <ul>
-        <li>{{ $com->comment }} - {{ $com->user->name}}</li> {{-- Output each com object as the comment body and the username assosiated with it. --}}
-      </ul>
-    @endforeach
-
-    <form method="POST" action="/models/{{ $model->id }}/comment"> {{-- Create a form to add a comment to the model. --}}
-      {{ csrf_field() }} {{-- Pass through a hidden token for token validation. --}}
-      <textarea name="comment" placeholder="Comment">{{ old('comment') }}</textarea>
-      <button type="submit">Leave comment</button> {{-- Submit the form. --}}
-    </form>
-    <br>
-  </div>
-  </div>
+      </div>
+      </div>
 @endif
+
 @endsection

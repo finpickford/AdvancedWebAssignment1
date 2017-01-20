@@ -1,12 +1,12 @@
-@extends('layout') {{-- Reference the layout file and use as the template. --}}
+@extends('layout')
 
-@section('content') {{-- Reference the content section within the layout. --}}
+@section('content')
 
-  <div class="heading"> {{-- Create a div for the heading of the page. --}}
+  <div class="heading"> {{-- Page heading. --}}
     <h1>About WristWatch</h1>
   </div>
 
-  <div class="content"> {{-- Create a div for the content of the page. --}}
+  <div class="content"> {{-- Page content. --}}
     <p>
       WristWatch was created in 2016. The creator, a fellow watch collector, found there wasn't a particular site available online for a collector to search for information quickly on a brand or model. </p>
       <p>Because of this, they created WristWatch. It is a site used to search and research watch brands and their models. Use it to check model names, model numbers, descriptions and price. </p>

@@ -1,19 +1,19 @@
-@extends('layout') {{-- Reference the layout template to be used. --}}
+@extends('layout')
 
-@section('content') {{-- Reference the content section in the layout template to be used. --}}
+@section('content')
 
-  @foreach ($watch as $result) {{-- Foreach watch object which was searched for, output it as a result variable. --}}
+  @foreach ($watch as $result) {{-- Output each watch instance. --}}
 
-    <div class="heading"> {{-- Create a heading class for the page's heading. --}}
+    <div class="heading"> {{-- Page heading. --}}
       <h1>
-        Search results for: "{{ $result->brand }}" {{-- Show the result objects brand name from the watch brand table.. --}}
+        Search results for: "{{ $result->brand }}" {{-- List of search results. --}}
       </h1>
     </div>
 
-    <div class="content"> {{-- Create a content class for the page's content. --}}
+    <div class="content"> {{-- Page content. --}}
       <ul>
-        @foreach ($result->models as $model) {{-- Reference the models function relating to the result object, and output this as a new variable named model. --}}
-          <li><a href="/models/{{ $model->id }}">{{ $model->model_name }}</a></li> {{-- Create a hyper link which displays the models name and passes through the models ID. --}}
+        @foreach ($result->models as $model) {{-- Show the searched brands models. --}}
+          <li><a href="/models/{{ $model->id }}">{{ $model->model_name }}</a></li> 
         @endforeach
       </ul>
     @endforeach

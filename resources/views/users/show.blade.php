@@ -1,21 +1,22 @@
-@extends('layout') {{-- Reference the layout template to be used. --}}
+@extends('layout')
 
-@section('content') {{-- Reference the content section in the layout template to be used. --}}
-  <div class="heading"> {{-- Create a heading class for the page's heading. --}}
-    <h1> {{$user->name}} </h1> {{-- For the user object, output the users name from the user table . --}}
+@section('content')
+
+  <div class="heading"> {{-- User heading. --}}
+    <h1> {{$user->name}} </h1> {{-- Show the user's name . --}}
   </div>
 
-  <div class="content"> {{-- Create a content class for the page's content . --}}
+  <div class="content"> {{-- Page content. --}}
     <ul>
-      <img src="/images/profile.png" alt="Profile" style="height:200px; width:200px"/> {{-- Show a profile icon . --}}
+      <img src="/images/profile.png" alt="Profile" style="height:200px; width:200px"/> {{-- Profile icon. --}}
       <br>
-      Email: {{$user->email}} {{-- Output the user objects email address from the users table. --}}
+      Email: {{$user->email}} {{-- User's email. --}}
       <br>
-      Member since: {{$user->created_at}} {{-- Show the timestamp of when the user first registered. --}}
+      Member since: {{$user->created_at}} {{-- Date user registered. --}}
     </ul>
   </div>
 
-  <div class="content"> {{-- Create a class for the page's comments. --}}
+  <div class="comments"> {{-- Comments section for each user. --}}
     <h3>Comments</h3>
     @foreach ($user->comments as $comment) {{-- Foreach comment assosiated with the current user, output as a new variable, comment. --}}
       <li>{{ $comment->comment }} - {{ $comment->models->model_name }}</li> {{-- Show the comment body as well as for which model the comment relates to. --}}

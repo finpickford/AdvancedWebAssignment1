@@ -1,45 +1,45 @@
-@extends('layout') {{-- Reference the layout template to be used. --}}
+@extends('layout')
 
-@section('content') {{-- Reference the content section within the layout template. --}}
+@section('content')
 
-  <div class="heading"> {{-- Create a heading class for the page's heading. --}}
+  <div class="heading"> {{-- Page heading. --}}
     <h1> All watch brands </h1>
   </div>
 
-  <div class="content"> {{-- Create a content class for the page's content. --}}
-    @foreach ($watches as $watch) {{-- For each watches object, output this as a new variable named watch. --}}
+  <div class="content"> {{-- Page content. --}}
+    @foreach ($watches as $watch) {{-- Show each watch. --}}
       <div>
         <ul>
-          <li><a href="/watches/{{ $watch->id }}">{{ $watch->brand }}</a></li> {{-- Display the watch brand as a hyperlink, and pass through the watch brands ID --}}
+          <li><a href="/watches/{{ $watch->id }}">{{ $watch->brand }}</a></li> {{-- Watch brands hyperlink. --}}
         </ul>
       </div>
     @endforeach
 </div>
 
-    @if (Auth::guest()) {{-- If the user is not signed in, run everything above this statement. --}}
-    @else {{-- If the user is signed in, run everything below. --}}
+    @if (Auth::guest()) {{-- User authentication. --}}
+    @else
 
       <div class="functions">
         <h3>Add a new brand</h3>
       <div class="form">
-      <form method="POST" action="/watches/brands"> {{-- Create a form to be able to add a new watch brand. --}}
-        {{ csrf_field() }} {{-- Add a hidden token for token validation. --}}
+      <form method="POST" action="/watches/brands"> {{-- Add a new brand. --}}
+        {{ csrf_field() }}
         <textarea name="brand" placeholder="Brand">{{ old('brand') }}</textarea>
-        <button type="submit">Add brand</button> {{-- Submit the form. --}}
+        <button type="submit">Add brand</button>
       </form>
 
-      @if (count($errors)) {{-- Count the errors from the forms validation. --}}
+      @if (count($errors)) {{-- Count the form validation errors. --}}
 
         <ul>
-          @foreach ($errors->all() as $error) {{-- Foreach error, output it as a new variable. --}}
+          @foreach ($errors->all() as $error) {{-- Output each error. --}}
             <li>
-              {{ $error }} {{-- Display each error in a list item. --}}
+              {{ $error }}
             </li>
           @endforeach
         </ul>
       @endif
     @endif
-  </div>
-</div>
+    </div>
+    </div>
 
 @endsection

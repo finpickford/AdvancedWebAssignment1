@@ -84,6 +84,7 @@ class ModelsController extends Controller
     ]);
 
     $model->update($request->all());
+    $model->specifications->update($request->all());
 
     $comments = Comments::where('models_id', 'LIKE', "$model->id")->get();
 

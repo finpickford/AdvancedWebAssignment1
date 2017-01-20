@@ -1,34 +1,34 @@
-@extends('layout') {{-- Reference the layout template to be used. --}}
+@extends('layout')
 
-@section('content') {{-- Reference the content section from the layout template. --}}
+@section('content')
 
-  <div class="heading"> {{-- Create a div for the heading of the page. --}}
+  <div class="heading"> {{-- Page heading. --}}
     <h1>
-      {{$watch->brand}} {{-- For the heading, output the watch that was passed from the controller, and show its brand name from the brand colum. --}}
+      {{$watch->brand}} {{-- Output watch instance brand name. --}}
     </h1>
   </div>
 
-  <div class="content"> {{-- Create a div for the content on the page. --}}
+  <div class="content"> {{-- Page content. --}}
     <ul>
-      @foreach ($watch->models as $model) {{-- Reference the models function in the watch controller, and make this result a new variable named model. --}}
-        <li><a href="/models/{{ $model->id }}">{{ $model->model_name }}</a></li> {{-- Output the models name as a hyper link which passes through the models id. --}}
+      @foreach ($watch->models as $model) {{-- Reference the models function in the watch controller. --}}
+        <li><a href="/models/{{ $model->id }}">{{ $model->model_name }}</a></li> {{-- Model name hyperlink. --}}
       @endforeach
     </ul>
     </div>
 
-    @if (Auth::guest()) {{-- If the user is not signed in, show everything above this. --}}
-    @else {{-- If the user is signed in, show all of the below, as extra content. --}}
+    @if (Auth::guest()) {{-- User authentication. --}}
+    @else
 
       <div class="functions">
         <h3>Admin</h3>
         <div class="form">
-      <form method="GET" action="/watches/{{$watch->id}}/addmodel"> {{-- Create a form which passes through the current watch brands id, allowing the user to add a model to this brand. --}}
-        <button type="submit">Add a new model</button> {{-- Create a button which submits the form. --}}
+      <form method="GET" action="/watches/{{$watch->id}}/addmodel"> {{-- Form to add a model. --}}
+        <button type="submit">Add a new model</button>
       </form>
 
-      @if (count($errors)) {{-- If there are any errors from the forms validation, output these errors in a list to the user. --}}
+      @if (count($errors)) {{-- Look for form validation errors. --}}
         <ul>
-          @foreach ($errors->all() as $error) {{-- For each error, create a new variable named error. --}}
+          @foreach ($errors->all() as $error)
             <li>
               {{ $error }} {{-- Output this error in a list. --}}
             </li>
@@ -36,10 +36,10 @@
         </ul>
       @endif
 
-      <form method="POST" action="/watches/{{ $watch->id }}/delete"> {{-- Add a form to be able to delete the current brand by it's ID. --}}
-        {{ method_field('PATCH') }} {{-- Patch through the request to the database, in order to change the database. --}}
-        {{ csrf_field() }} {{-- Add a hidden token for token validation. --}}
-        <button type="submit">Delete brand</button> {{-- Submit the form. --}}
+      <form method="POST" action="/watches/{{ $watch->id }}/delete"> {{-- Delete the brand. --}}
+        {{ method_field('PATCH') }}
+        {{ csrf_field() }}
+        <button type="submit">Delete brand</button>
       </form>
     </div>
     </div>

@@ -8,13 +8,6 @@
             <meta name="viewport" content="width=device-width, initial-scale=1">
 
             <title>WristWatch</title>
-
-            {{-- <script type="text/javascript" src="/js/zingchart.min.js"></script> --}}
-            {{-- <script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
-          <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
-          ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9","ee6b7db5b51705a13dc2339db3edaf6d"];</script> --}}
-
-
             <!-- Fonts -->
             <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -22,16 +15,16 @@
 
         </head>
         <body>
-          <div class="login">
+          <div class="login"> {{-- Login form at the top of the page. --}}
             <div class="loginLinks">
           <ul>
               <!-- Authentication Links -->
-              @if (Auth::guest())
+              @if (Auth::guest()) {{--If the user is not logged in, show the below. --}}
                   <li><a href="{{ url('/login') }}">Login</a></li>
                   <li><a href="{{ url('/register') }}">Register</a></li>
-              @else
+              @else {{--If the user is logged in, show the below. --}}
                   <li class="dropdown">
-                      <a href="/users/{{Auth::user()->id}}">{{ Auth::user()->name }}</a>
+                      <a href="/users/{{Auth::user()->id}}">{{ Auth::user()->name }}</a> {{-- Get the users name and post their id--}}
 
                       <ul class="dropdown-menu">
                           <li>
@@ -53,14 +46,14 @@
         </div>
 
           <div class="header">
-            <div class="logo">
+            <div class="logo"> {{-- Create a class for the logo and header. --}}
             <ul>
-            <li><h1><a href=/>WristWatch</a></h1></li>
+            <li><h1><a href=/>WristWatch</a></h1></li> 
 
           </ul>
         </div>
 
-          <div class="search">
+          <div class="search"> {{-- Create a search bar for users to search for a watch brand. --}}
               <form method="POST" action="/watches/search">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="search" id="search" name="watchsearch" placeholder="Search for a brand">
@@ -69,7 +62,7 @@
             </div>
           </div>
 
-          <div class="nav">
+          <div class="nav"> {{-- Navigation bar. --}}
 
             <ul>
               <li><a href=/>Home</a></li>

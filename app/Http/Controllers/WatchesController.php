@@ -11,7 +11,7 @@ class WatchesController extends Controller
     public function index()
     {
 
-      $watches = Watch::all();
+      $watches = Watch::select('*')->orderBy('brand')->get();
 
       return view('watches.index', compact('watches'));
     }
@@ -50,7 +50,6 @@ public function search(Request $request)
 public function delete(Request $request, Watch $watch)
 {
   $watch->delete($request->all());
-
 
   return redirect('/watches');
 }
