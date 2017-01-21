@@ -2,7 +2,7 @@
 
 @section('content')
 
-  @foreach ($watch as $result) {{-- Output each watch instance. --}}
+  @foreach ($brand as $result) {{-- Output each watch instance. --}}
 
     <div class="heading"> {{-- Page heading. --}}
       <h1>
@@ -12,8 +12,8 @@
 
     <div class="content"> {{-- Page content. --}}
       <ul>
-        @foreach ($result->models as $model) {{-- Show the searched brands models. --}}
-          <li><a href="/models/{{ $model->id }}">{{ $model->model_name }}</a></li> 
+        @foreach ($result->brandModels as $brandModel) {{-- Show the searched brands models. --}}
+          <li><a href="/brandModels/{{ $brandModel->id }}">{{ $brandModel->model_name }}</a></li>
         @endforeach
       </ul>
     @endforeach

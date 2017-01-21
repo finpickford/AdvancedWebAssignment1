@@ -18,9 +18,9 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
-    public function models()
+    public function brandModels()
     {
-      return $this->hasMany(Models::class);
+      return $this->hasMany(BrandModel::class);
     }
 
     public function comments()

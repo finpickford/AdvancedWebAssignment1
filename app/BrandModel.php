@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Models extends Model
+class BrandModel extends Model
 {
   protected $fillable = ['model_name', 'model_number', 'details', 'price'];
 
-    public function watch()
+    public function brand()
     {
-      return $this->belongsTo(Watch::class);
+      return $this->belongsTo(Brand::class);
     }
 
     public function user()

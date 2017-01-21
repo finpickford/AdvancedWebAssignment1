@@ -15,7 +15,7 @@ class CreateSpecificationTable extends Migration
     {
         Schema::create('specifications', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('models_id')->unsigned()->index();
+            $table->integer('brand_model_id')->unsigned()->index();
             $table->string('case_size');
             $table->string('dial_colour');
             $table->string('movement_type');

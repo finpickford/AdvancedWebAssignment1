@@ -4,15 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Watch extends Model
+class Brand extends Model
 {
-    public function models()
+    public function brandModels()
     {
-      return $this->hasMany(Models::class);
+      return $this->hasMany(BrandModel::class);
     }
 
 
-    public function addModel(Models $model, $userId)
+    public function addBrandModel(BrandModel $model, $userId)
     {
       $model->user_id = $userId;
 
