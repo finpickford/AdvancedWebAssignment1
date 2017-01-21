@@ -13,7 +13,7 @@ class CreateWatchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('watches', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->increments('id');
             $table->string('brand');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateWatchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('watches');
+        Schema::dropIfExists('brands');
     }
 }

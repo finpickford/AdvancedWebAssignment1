@@ -8,10 +8,11 @@ class Comments extends Model
 {
 protected $fillable = ['comment'];
 
-    public function models()
-    {
-      return $this->belongsTo(Models::class);
-    }
+
+  public function brandModel()
+  {
+    return $this->belongsTo(BrandModel::class, 'brand_model_id','id');
+  }
 
     public function user()
     {

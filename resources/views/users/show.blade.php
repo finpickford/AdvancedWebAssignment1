@@ -18,8 +18,8 @@
 
   <div class="comments"> {{-- Comments section for each user. --}}
     <h3>Comments</h3>
-    @foreach ($user->comments as $comment) {{-- Foreach comment assosiated with the current user, output as a new variable, comment. --}}
-      <li>{{ $comment->comment }} - {{ $comment->models->model_name }}</li> {{-- Show the comment body as well as for which model the comment relates to. --}}
+    @foreach ($user->comments as $comments) {{-- Foreach comment assosiated with the current user, output as a new variable, comment. --}}
+      <li>{{ $comments->comment }} - {{ $comments->brandModel->model_name }}</li> {{-- Show the comment body as well as for which model the comment relates to. --}}
     @endforeach
   </div>
 

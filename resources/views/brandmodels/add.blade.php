@@ -4,13 +4,13 @@
   @if (Auth::guest())
   @else
 <div class="heading">
- <h1> Add {{ $watch->brand }} model</h1>
+ <h1> Add {{ $brand->brand }} model</h1>
 
 </div>
 
 <div class="content">
   <div class="form">
-  <form method="POST" action="/watches/{{ $watch->id }}/models">
+  <form method="POST" action="/brand/{{ $brand->id }}/brandModels">
 
     {{ csrf_field() }}
 

@@ -10,9 +10,9 @@ class Specifications extends Model
   protected $fillable = ['case_size', 'dial_colour', 'movement_type', 'case_material'];
 
 
-    public function models()
+    public function model()
     {
-      return $this->belongsTo(Models::class);
+      return $this->belongsTo(BrandModel::class);
     }
 
 

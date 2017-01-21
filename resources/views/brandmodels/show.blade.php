@@ -3,13 +3,13 @@
 @section('content')
 
   <div class="heading"> {{-- Page heading. --}}
-    <h1> {{ $model->model_name }} </h1> {{-- Show model name. --}}
-    <h3>£{{ $model->price }}</h3> {{-- Show model price. --}}
+    <h1> {{$brandModel->brand->brand }} {{ $brandModel->model_name }} </h1> {{-- Show model name. --}}
+    <h3>£{{ $brandModel->price }}</h3> {{-- Show model price. --}}
   </div>
 
   <div class="content"> {{-- Page content. --}}
     <ul>
-      Model number: {{$model->model_number}} {{-- Show the model number. --}}
+      Model number: {{$brandModel->model_number}} {{-- Show the model number. --}}
     </uL>
 
     <div class="info"> {{-- Models info. --}}
@@ -21,20 +21,20 @@
 
       <div id="Details" class="tabcontent"> {{-- Details tab section. --}}
         <h3>Details</h3>
-        <p>{{$model->details}}</p> {{-- Model details. --}}
+        <p>{{$brandModel->details}}</p> {{-- Model details. --}}
       </div>
 
       <div id="Specifications" class="tabcontent"> {{-- Specifications tab section. --}}
         <h3> Specification </h3>
         <p>
-          Case size: {{$model->specifications->case_size}} <br> {{-- Model case size. --}}
-          Dial colour: {{$model->specifications->dial_colour}} <br> {{-- Model dial colour. --}}
-          Movement type: {{$model->specifications->movement_type}} <br> {{-- Model movement type. --}}
-          Case material: {{$model->specifications->case_material}} {{-- Model case material. --}}
+          Case size: {{$brandModel->specifications->case_size}} <br> {{-- Model case size. --}}
+          Dial colour: {{$brandModel->specifications->dial_colour}} <br> {{-- Model dial colour. --}}
+          Movement type: {{$brandModel->specifications->movement_type}} <br> {{-- Model movement type. --}}
+          Case material: {{$brandModel->specifications->case_material}} {{-- Model case material. --}}
         </p>
       </div>
       <br>
-      <a href="/users/{{ $model->user_id }}">Added by: {{ $model->user->name }}</a> {{-- Model username as hyperlink. --}}
+      <a href="/users/{{ $brandModel->user_id }}">Added by: {{ $brandModel->user->name }}</a> {{-- Model username as hyperlink. --}}
       </div>
       </div>
     </div>
@@ -44,23 +44,22 @@
 
     @if (Auth::guest()) {{-- User authentication. --}}
 
-    @elseif (Auth::user()->id == $model->user->id)
-
+    @else
       <div class="functions">
         <h3>Admin</h3>
         <div class="form">
-      <form method="GET" action="/models/{{ $model->id }}/edit"> {{-- Create a form to edit the current model, passing through it's ID. --}}
+      <form method="GET" action="/brandModels/{{ $brandModel->id }}/edit"> {{-- Create a form to edit the current model, passing through it's ID. --}}
         <button type="submit">Edit model</button>
       </form>
       <br>
 
-      <form method="POST" action="/models/{{ $model->id }}/delete"> {{-- Create a form to delete the model, passing through the model ID. --}}
+      <form method="POST" action="/brandModels/{{ $brandModel->id }}/delete"> {{-- Create a form to delete the model, passing through the model ID. --}}
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
         <button type="submit">Delete model</button>
       </form>
-
-    @else
+    </div>
+</div>
 
       <div class="comments"> {{-- Comments section. --}}
       <h3>Comments</h3>
@@ -71,7 +70,7 @@
       </ul>
       @endforeach
 
-      <form method="POST" action="/models/{{ $model->id }}/comment"> {{-- Add a comment. --}}
+      <form method="POST" action="/brandModels/{{ $brandModel->id }}/comment"> {{-- Add a comment. --}}
       {{ csrf_field() }}
       <textarea name="comment" placeholder="Comment">{{ old('comment') }}</textarea>
       <button type="submit">Leave comment</button>

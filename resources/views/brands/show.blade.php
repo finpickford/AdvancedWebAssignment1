@@ -4,14 +4,14 @@
 
   <div class="heading"> {{-- Page heading. --}}
     <h1>
-      {{$watch->brand}} {{-- Output watch instance brand name. --}}
+      {{$brand->brand}} {{-- Output watch instance brand name. --}}
     </h1>
   </div>
 
   <div class="content"> {{-- Page content. --}}
     <ul>
-      @foreach ($watch->models as $model) {{-- Reference the models function in the watch controller. --}}
-        <li><a href="/models/{{ $model->id }}">{{ $model->model_name }}</a></li> {{-- Model name hyperlink. --}}
+      @foreach ($brand->brandModels as $brandModel) {{-- Reference the models function in the watch controller. --}}
+        <li><a href="/brandModels/{{ $brandModel->id }}">{{ $brandModel->model_name }}</a></li> {{-- Model name hyperlink. --}}
       @endforeach
     </ul>
     </div>
@@ -22,7 +22,7 @@
       <div class="functions">
         <h3>Admin</h3>
         <div class="form">
-      <form method="GET" action="/watches/{{$watch->id}}/addmodel"> {{-- Form to add a model. --}}
+      <form method="GET" action="/brand/{{$brand->id}}/addmodel"> {{-- Form to add a model. --}}
         <button type="submit">Add a new model</button>
       </form>
 
@@ -36,7 +36,7 @@
         </ul>
       @endif
 
-      <form method="POST" action="/watches/{{ $watch->id }}/delete"> {{-- Delete the brand. --}}
+      <form method="POST" action="/brand/{{ $brand->id }}/delete"> {{-- Delete the brand. --}}
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
         <button type="submit">Delete brand</button>

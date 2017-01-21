@@ -48,13 +48,13 @@
           <div class="header">
             <div class="logo"> {{-- Create a class for the logo and header. --}}
             <ul>
-            <li><h1><a href=/>WristWatch</a></h1></li> 
+            <li><h1><a href=/>WristWatch</a></h1></li>
 
           </ul>
         </div>
 
           <div class="search"> {{-- Create a search bar for users to search for a watch brand. --}}
-              <form method="POST" action="/watches/search">
+              <form method="POST" action="/brand/search">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="search" id="search" name="watchsearch" placeholder="Search for a brand">
                   <button id="button" type="submit">Search</button>
@@ -66,7 +66,7 @@
 
             <ul>
               <li><a href=/>Home</a></li>
-              <li><a href=/watches>Brands</a></li>
+              <li><a href=/brands>Brands</a></li>
               <li><a href=/about>About</a></li>
               <li><a href=/dashboard>Dashboard</a></li>
             </ul>

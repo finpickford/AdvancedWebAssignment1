@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use DB;
 use Auth;
-use App\Watch;
-use App\Models;
+use App\Brand;
+use App\BrandModel;
 use App\User;
 use App\Specifications;
 use App\Comments;
@@ -41,15 +41,15 @@ class PagesController extends Controller
       $counterUserComments = array_column($usersComments, 'count');
       $labelUserComments = array_column($usersComments, 'name');
 
-      $brands = Models::select(DB::raw("count(watch_id) as count"),("watches.brand as brand"))
-      ->join('watches', 'models.watch_id','=','watches.id')
-      ->orderBy("watches.brand")
-      ->groupBy("watches.brand")->get()->toArray();
+      $brands = BrandModel::select(DB::raw("count(brand_id) as count"),("brands.brand as brand"))
+      ->join('brands', 'brand_models.brand_id','=','brands.id')
+      ->orderBy("brands.brand")
+      ->groupBy("brands.brand")->get()->toArray();
       $counterBrands = array_column($brands, 'count');
       $labelBrands = array_column($brands, 'brand');
 
-      $userModels = Models::select(DB::raw("count(user_id) as count"),("users.name as name"))
-      ->join('users', 'models.user_id','=','users.id')
+      $userModels = BrandModel::select(DB::raw("count(user_id) as count"),("users.name as name"))
+      ->join('users', 'brand_models.user_id','=','users.id')
       ->orderBy("users.name")
       ->groupBy("users.name")->get()->toArray();
       $counterUserModels = array_column($userModels, 'count');

@@ -12,7 +12,7 @@
 
 
       <ul>
-        <li><a href="/models/{{ $comment->models->id }}">{{ $comment->comment}} - {{ $comment->models->model_name }} ({{ $comment->user->name }})</a></li>
+        <li><a href="/brandModels/{{ $comment->brandModels->id }}">{{ $comment->comment}} - {{ $comment->brandModels->model_name }} ({{ $comment->user->name }})</a></li>
 
 
       </ul>
