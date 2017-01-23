@@ -43,8 +43,8 @@
 
 
 @if (Auth::guest()) {{-- User authentication. --}}
-
-@else
+@elseif (Auth::user())
+  @if (Auth::user()->id == $brandModel->user->id)
   <div class="functions">
     <h3>Admin</h3>
     <div class="form">
@@ -60,6 +60,7 @@
       </form>
     </div>
   </div>
+@endif
 
   <div class="comments"> {{-- Comments section. --}}
     <h3>Comments</h3>
@@ -88,7 +89,7 @@
         @endforeach
       </ul>
     @endif
-    
+
   </div>
 @endif
 
