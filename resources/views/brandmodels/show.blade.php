@@ -35,19 +35,19 @@
       </div>
       <br>
       <a href="/users/{{ $brandModel->user_id }}">Added by: {{ $brandModel->user->name }}</a> {{-- Model username as hyperlink. --}}
-      </div>
-      </div>
     </div>
-
-    <script type="text/javascript" src="/js/tabs.js"></script> {{-- External tab script. --}}
+  </div>
 </div>
 
-    @if (Auth::guest()) {{-- User authentication. --}}
+<script type="text/javascript" src="/js/tabs.js"></script> {{-- External tab script. --}}
+</div>
 
-    @else
-      <div class="functions">
-        <h3>Admin</h3>
-        <div class="form">
+@if (Auth::guest()) {{-- User authentication. --}}
+
+@else
+  <div class="functions">
+    <h3>Admin</h3>
+    <div class="form">
       <form method="GET" action="/brandModels/{{ $brandModel->id }}/edit"> {{-- Create a form to edit the current model, passing through it's ID. --}}
         <button type="submit">Edit model</button>
       </form>
@@ -59,25 +59,25 @@
         <button type="submit">Delete model</button>
       </form>
     </div>
-</div>
+  </div>
 
-      <div class="comments"> {{-- Comments section. --}}
-      <h3>Comments</h3>
-      <div class="form">
+  <div class="comments"> {{-- Comments section. --}}
+    <h3>Comments</h3>
+    <div class="form">
       @foreach ($comments as $com) {{-- Show each comment in the foreach. --}}
-      <ul>
-        <li>{{ $com->comment }} - {{ $com->user->name}}</li> {{-- Out put the comments username. --}}
-      </ul>
+        <ul>
+          <li>{{ $com->comment }} - {{ $com->user->name}}</li> {{-- Out put the comments username. --}}
+        </ul>
       @endforeach
 
       <form method="POST" action="/brandModels/{{ $brandModel->id }}/comment"> {{-- Add a comment. --}}
-      {{ csrf_field() }}
-      <textarea name="comment" placeholder="Comment">{{ old('comment') }}</textarea>
-      <button type="submit">Leave comment</button>
+        {{ csrf_field() }}
+        <textarea name="comment" placeholder="Comment">{{ old('comment') }}</textarea>
+        <button type="submit">Leave comment</button>
       </form>
       <br>
-      </div>
-      </div>
+    </div>
+  </div>
 @endif
 
 @endsection
