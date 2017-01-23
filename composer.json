@@ -26,6 +26,10 @@
             "App\\": "app/"
         },
 
+        "psr-0": {
+                    "phpUnitTutorial": ""
+                },
+
         "files": [
           "app/helpers.php"
         ]

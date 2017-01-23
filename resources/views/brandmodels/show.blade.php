@@ -15,7 +15,7 @@
     <div class="info"> {{-- Models info. --}}
       <ul class="tab"> {{-- Tabs system for the info. --}}
         {{-- Create a tab system to go between details and specifications. --}}
-        <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Details')" id="defaultOpen">Detials</a></li>
+        <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Details')" id="defaultOpen">Details</a></li>
         <li><a href="javascript:void(0)" class="tablinks" onclick="openTab(event, 'Specifications')">Specifications</a></li>
       </ul>
 
@@ -37,10 +37,10 @@
       <a href="/users/{{ $brandModel->user_id }}">Added by: {{ $brandModel->user->name }}</a> {{-- Model username as hyperlink. --}}
     </div>
   </div>
-</div>
+
 
 <script type="text/javascript" src="/js/tabs.js"></script> {{-- External tab script. --}}
-</div>
+
 
 @if (Auth::guest()) {{-- User authentication. --}}
 
@@ -77,6 +77,18 @@
       </form>
       <br>
     </div>
+
+    @if (count($errors)) {{-- Error handling. --}}
+
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>
+            {{ $error}}
+          </li>
+        @endforeach
+      </ul>
+    @endif
+    
   </div>
 @endif
 

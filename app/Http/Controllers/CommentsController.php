@@ -16,25 +16,28 @@ class CommentsController extends Controller
 
 {
 
+  // Create a function to store a new comment for the brand model.
   public function store(Request $request, BrandModel $brandModel)
   {
 
-      $this->validate($request, [
-        'comment' => 'required',
-      ]);
+    // Validation
+    $this->validate($request, [
+      'comment' => 'required',
+    ]);
 
-        $comment = new Comments;
-        $comment->comment = $request->comment;
-        $user = Auth::user()->id;
-        $comment->user_id = $user;
-        $comment->brand_model_id = $brandModel->id;
+    // Create a new instance of the comments model.
+    $comment = new Comments;
+    $comment->comment = $request->comment; // Request the comment body.
+    $user = Auth::user()->id; // Get the logged in user.
+    $comment->user_id = $user; // Set the user id as logged in user.
+    $comment->brand_model_id = $brandModel->id; // Set the id of the brand model as the current brand variable.
 
-        $comment->save();
+    $comment->save();
 
-        $comments = Comments::where('brand_model_id', 'LIKE', "$brandModel->id")->get();
+    $comments = Comments::where('brand_model_id', 'LIKE', "$brandModel->id")->get(); // Get the comments again for that model to update the page.
 
 
-    return view('brandmodels.show', compact('brandModel', 'comments'));
+    return view('brandmodels.show', compact('brandModel', 'comments')); // Return the same view again, but updated. 
   }
 
 }

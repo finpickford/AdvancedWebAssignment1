@@ -12,7 +12,7 @@ class Brand extends Model
     return $this->hasMany(BrandModel::class);
   }
 
-  // Define the relationship so that a brand can add a new model. 
+  // Define the relationship so that a brand can add a new model.
   public function addBrandModel(BrandModel $model, $userId)
   {
     $model->user_id = $userId;

@@ -34,8 +34,8 @@
               <li>
                 {{ $error}}
               </li>
-            </ul>
-          @endforeach
+            @endforeach
+          </ul>
         @endif
       </div>
     </div>

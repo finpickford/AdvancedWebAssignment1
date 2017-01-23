@@ -8,49 +8,64 @@ use App\Http\Controllers\Controller;
 
 class BrandsController extends Controller
 {
-    public function index()
-    {
+  // Create a function to show every brand on a page, as an index.
+  public function index()
+  {
 
-      $brands = Brand::select('*')->orderBy('brand')->get();
+    // Select everything from the brand table and order it alphabetically.
+    $brands = Brand::select('*')->orderBy('brand')->get();
 
-      return view('brands.index', compact('brands'));
-    }
+    return view('brands.index', compact('brands'));
+  }
 
-    public function show(Brand $brand)
+  // Create a function to show the brand's info page.
+  public function show(Brand $brand)
 
-    {
-      return view('brands.show', compact('brand'));
-    }
+  {
+    return view('brands.show', compact('brand'));
+  }
 
-    public function store (Request $request)
-    {
+  // Create a function to store a new brand.
+  public function store (Request $request)
+  {
 
-      $this->validate($request, [
-        'brand' => 'required',
-      ]);
+    // Validation.
+    $this->validate($request, [
+      'brand' => 'required',
+    ]);
 
-      $brand = new Brand;
+    // Create a new brand model instance.
+    $brand = new Brand;
 
-      $brand->brand = $request->brand;
+    // Request the brand name from the view.
+    $brand->brand = $request->brand;
 
-      $brand->save();
+    $brand->save();
 
-      return back();
-    }
+    return back();
+  }
 
-public function search(Request $request)
-{
-  $watchSearched = $request->watchsearch;
+  // A function to search for a brand.
+  public function search(Request $request)
+  {
+    // Validation.
+    $this->validate($request, ['watchsearch'=>'required']);
 
-  $brand = Brand::where('brand', 'LIKE', "$watchSearched")->get();
+    // Request the searched field from the view.
+    $watchSearched = $request->watchsearch;
 
-  return view('brands.search', compact('brand'));
-}
+    // Search the brand table for the watchSearched variable.
+    $brand = Brand::where('brand', 'LIKE', "$watchSearched")->get();
 
-public function delete(Request $request, Brand $brand)
-{
-  $brand->delete($request->all());
+    return view('brands.search', compact('brand'));
+  }
 
-  return redirect('/brands');
-}
+  // Function to delete a brand.
+  public function delete(Request $request, Brand $brand)
+  {
+    // Request the fields from the page and delete them. 
+    $brand->delete($request->all());
+
+    return redirect('/brands');
+  }
 }

@@ -14,21 +14,21 @@ class UsersController extends Controller
 
 {
 
+  // Function to store a new  user.
   public function store(Request $request, User $user)
   {
-
     $user->addModel(
-        new User($request->all())
-    );
+    new User($request->all())
+  );
 
-    return view('/');
-  }
+  return view('/');
+}
 
-  public function show(User $user)
+// Function to show a user profile on a user defined view. 
+public function show(User $user)
 
-  {
-
-    return view('users.show', compact('user'));
-  }
+{
+  return view('users.show', compact('user'));
+}
 
 }
