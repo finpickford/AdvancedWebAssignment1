@@ -42,7 +42,7 @@ class ExampleTest extends TestCase
     // Visit the login page. Enter the email and password defined and then click the login button.
     // The returned page should be the homepage.
     $this->visit('/login')
-    ->type('finpickford93@gmail.com', 'email')
+    ->type('joebloggs@testing.com', 'email')
     ->type('password', 'password')
     ->press('Login')
     ->seePageIs('/');
