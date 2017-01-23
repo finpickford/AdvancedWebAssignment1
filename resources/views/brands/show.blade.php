@@ -9,12 +9,18 @@
   </div>
 
   <div class="content"> {{-- Page content. --}}
-    <ul>
-      @foreach ($brand->brandModels as $brandModel) {{-- Reference the models function in the watch controller. --}}
-        <li><a href="/brandModels/{{ $brandModel->id }}">{{ $brandModel->model_name }}</a></li> {{-- Model name hyperlink. --}}
-      @endforeach
-    </ul>
+    @if (count($brand->brandModels) == 0)
+      No models found.
+    @elseif (count($brand->brandModels) >= 1)
+
+      <ul>
+        @foreach ($brand->brandModels as $brandModel) {{-- Reference the models function in the watch controller. --}}
+          <li><a href="/brandModels/{{ $brandModel->id }}">{{ $brandModel->model_name }}</a></li> {{-- Model name hyperlink. --}}
+        @endforeach
+      </ul>
+    @endif
   </div>
+
 
   @if (Auth::guest()) {{-- User authentication. --}}
   @else
