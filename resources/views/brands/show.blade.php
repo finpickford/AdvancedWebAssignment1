@@ -14,34 +14,34 @@
         <li><a href="/brandModels/{{ $brandModel->id }}">{{ $brandModel->model_name }}</a></li> {{-- Model name hyperlink. --}}
       @endforeach
     </ul>
+  </div>
+
+  @if (Auth::guest()) {{-- User authentication. --}}
+  @else
+
+    <div class="functions">
+      <h3>Admin</h3>
+      <div class="form">
+        <form method="GET" action="/brand/{{$brand->id}}/addmodel"> {{-- Form to add a model. --}}
+          <button type="submit">Add a new model</button>
+        </form>
+
+        @if (count($errors)) {{-- Look for form validation errors. --}}
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>
+                {{ $error }} {{-- Output this error in a list. --}}
+              </li>
+            @endforeach
+          </ul>
+        @endif
+
+        <form method="POST" action="/brand/{{ $brand->id }}/delete"> {{-- Delete the brand. --}}
+          {{ method_field('PATCH') }}
+          {{ csrf_field() }}
+          <button type="submit">Delete brand</button>
+        </form>
+      </div>
     </div>
-
-    @if (Auth::guest()) {{-- User authentication. --}}
-    @else
-
-      <div class="functions">
-        <h3>Admin</h3>
-        <div class="form">
-      <form method="GET" action="/brand/{{$brand->id}}/addmodel"> {{-- Form to add a model. --}}
-        <button type="submit">Add a new model</button>
-      </form>
-
-      @if (count($errors)) {{-- Look for form validation errors. --}}
-        <ul>
-          @foreach ($errors->all() as $error)
-            <li>
-              {{ $error }} {{-- Output this error in a list. --}}
-            </li>
-          @endforeach
-        </ul>
-      @endif
-
-      <form method="POST" action="/brand/{{ $brand->id }}/delete"> {{-- Delete the brand. --}}
-        {{ method_field('PATCH') }}
-        {{ csrf_field() }}
-        <button type="submit">Delete brand</button>
-      </form>
-    </div>
-    </div>
-      @endif
+  @endif
 @endsection

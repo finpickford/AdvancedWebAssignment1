@@ -19,7 +19,8 @@ Route::get('/begin', function () { // load a begin flash message.
   flash('You are now signed in!', 'Success');
     return redirect('/');
 });
-Route::get('/', 'PagesController@home'); // Load the homepage.
+
+Route::get('/', 'PagesController@home');
 
 // Watches routes, used to display any page relating to the watch brand and deal with any request to do with the brand.
 Route::get('brands', 'BrandsController@index'); // Load the index page of the watch brands.

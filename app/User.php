@@ -7,33 +7,35 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+  use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+  /**
+  * The attributes that are mass assignable.
+  *
+  * @var array
+  */
+  protected $fillable = [
+    'name', 'email', 'password',
+  ];
 
-    public function brandModels()
-    {
-      return $this->hasMany(BrandModel::class);
-    }
+  // Define the relationship that a user has many brand models assosiated with it.
+  public function brandModels()
+  {
+    return $this->hasMany(BrandModel::class);
+  }
 
-    public function comments()
-    {
-      return $this->hasMany(Comments::class);
-    }
+  // Define the relationship that a user has many comments assosiated.
+  public function comments()
+  {
+    return $this->hasMany(Comments::class);
+  }
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+  /**
+  * The attributes that should be hidden for arrays.
+  *
+  * @var array
+  */
+  protected $hidden = [
+    'password', 'remember_token',
+  ];
 }
