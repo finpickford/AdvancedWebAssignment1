@@ -55,7 +55,7 @@ class BrandsController extends Controller
     $watchSearched = $request->watchsearch;
 
     // Search the brand table for the watchSearched variable.
-    $brand = Brand::where('brand', 'LIKE', "$watchSearched")->get();
+    $brand = Brand::where('brand', 'LIKE', "%$watchSearched%")->get();
 
     return view('brands.search', compact('brand'));
   }
@@ -63,7 +63,7 @@ class BrandsController extends Controller
   // Function to delete a brand.
   public function delete(Request $request, Brand $brand)
   {
-    // Request the fields from the page and delete them. 
+    // Request the fields from the page and delete them.
     $brand->delete($request->all());
 
     return redirect('/brands');

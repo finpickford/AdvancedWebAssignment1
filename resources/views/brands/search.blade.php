@@ -16,14 +16,15 @@
       </h1>
     </div>
 
-    <div class="content"> {{-- Page content. --}}
+    {{-- Page content. --}}
       <ul>
         @foreach ($result->brandModels as $brandModel) {{-- Show the searched brands models. --}}
+          <div class="content">
           <li><a href="/brandModels/{{ $brandModel->id }}">{{ $brandModel->model_name }}</a></li>
+        </div>
         @endforeach
       </ul>
 @endforeach
-  </div>
-    @endif
+@endif
 
 @endsection
