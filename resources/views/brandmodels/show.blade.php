@@ -64,13 +64,22 @@
 
   <div class="comments"> {{-- Comments section. --}}
     <h3>Comments</h3>
-    <div class="form">
+    <div class="formComments">
       @foreach ($comments as $com) {{-- Show each comment in the foreach. --}}
         <ul>
           <li>{{ $com->comment }} - {{ $com->user->name}}</li> {{-- Out put the comments username. --}}
+          @if (Auth::user()->id == $com->user->id)
+          <li><form method="POST" action="/{{ $com->id }}/delete"> {{-- Create a form to delete the model, passing through the model ID. --}}
+            {{ method_field('PATCH') }}
+            {{ csrf_field() }}
+            <button id ="deleteBut" type="submit">X</button>
+          </form></li>
+          @endif
         </ul>
       @endforeach
+    </div>
 
+      <div class="form">
       <form method="POST" action="/brandModels/{{ $brandModel->id }}/comment"> {{-- Add a comment. --}}
         {{ csrf_field() }}
         <textarea name="comment" placeholder="Comment">{{ old('comment') }}</textarea>

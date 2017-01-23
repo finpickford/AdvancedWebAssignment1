@@ -41,4 +41,6 @@ Route::post('brandModels/{brandModel}/comment' , 'CommentsController@store'); //
 // User routes, used to display and handle any requests releating to a user.
 Route::get('/users/{user}', 'UsersController@show'); // Show a user profile.
 
+Route::patch('/{comment}/delete', 'CommentsController@delete');
+
 Auth::routes();

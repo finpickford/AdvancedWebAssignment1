@@ -24,6 +24,16 @@ a:hover {
   color: #e67e22;
 }
 
+/* Style the comment so they display in a block. */
+.formComment {
+  display:block;
+}
+
+.formComments li {
+  display: inline-block;
+  padding: 10px;
+}
+
 /* Style for all id's named button. */
 #button {
   border-radius: 28px;

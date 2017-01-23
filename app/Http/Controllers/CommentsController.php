@@ -36,8 +36,16 @@ class CommentsController extends Controller
 
     $comments = Comments::where('brand_model_id', 'LIKE', "$brandModel->id")->get(); // Get the comments again for that model to update the page.
 
-
-    return view('brandmodels.show', compact('brandModel', 'comments')); // Return the same view again, but updated. 
+    return back();
   }
 
+  // Function to delete a comment. 
+  public function delete(Request $request, Comments $comment)
+  {
+
+    // Request the fields from the page and delete them.
+    $comment->delete($request->all());
+
+    return back();
+  }
 }
