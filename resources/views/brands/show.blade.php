@@ -43,7 +43,7 @@
         @endif
 
         <form method="POST" action="/brand/{{ $brand->id }}/delete"> {{-- Delete the brand. --}}
-          {{ method_field('PATCH') }}
+          
           {{ csrf_field() }}
           <button type="submit">Delete brand</button>
         </form>

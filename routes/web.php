@@ -28,12 +28,12 @@ Route::get('brand/{brand}', 'BrandsController@show'); // Load a particular watch
 Route::post('brand/{brand}/brandModels', 'BrandModelsController@store'); //Store a new model to a stated watch brand.
 Route::post('brand/brands', 'BrandsController@store'); // Store a new watch brand.
 Route::post('brand/{search}', 'BrandsController@search'); // Search for a watch brand.
-Route::patch('brand/{brand}/delete', 'BrandsController@delete'); // Delete a watch brand.
+Route::post('brand/{brand}/delete', 'BrandsController@delete'); // Delete a watch brand.
 route::get('/brand/{brand}/addmodel' , 'BrandModelsController@add'); // Show the add model view, go to the models controller not watch controller.
 
 // Models routes, used to display any page relating to a watch model and deal with any requests with a model.
 Route::get('/brandModels/{brandModel}/edit', 'BrandModelsController@edit'); // Show an edit view for a user to edit a model.
-Route::patch('/brandModels/{brandModel}/delete', 'BrandModelsController@delete'); // Delete a model.
+Route::post('/brandModels/{brandModel}/delete', 'BrandModelsController@delete'); // Delete a model.
 Route::get('brandModels/{brandModel}', 'BrandModelsController@show'); // Show a models info.
 Route::patch('brandModels/{brandModel}/update' , 'BrandModelsController@update'); // Update a model thats already in the database. Use a patch route to patch to database.
 Route::post('brandModels/{brandModel}/comment' , 'CommentsController@store'); // Add a comment to the models page.
@@ -41,6 +41,6 @@ Route::post('brandModels/{brandModel}/comment' , 'CommentsController@store'); //
 // User routes, used to display and handle any requests releating to a user.
 Route::get('/users/{user}', 'UsersController@show'); // Show a user profile.
 
-Route::patch('/{comment}/delete', 'CommentsController@delete');
+Route::post('/{comment}/delete', 'CommentsController@delete');
 
 Auth::routes();

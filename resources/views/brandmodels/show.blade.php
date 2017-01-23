@@ -54,7 +54,7 @@
           <br>
 
           <form method="POST" action="/brandModels/{{ $brandModel->id }}/delete"> {{-- Create a form to delete the model, passing through the model ID. --}}
-            {{ method_field('PATCH') }}
+
             {{ csrf_field() }}
             <button type="submit">Delete model</button>
           </form>
@@ -70,7 +70,7 @@
             <li>{{ $com->created_at}}: {{ $com->comment }} - {{ $com->user->name}}</li> {{-- Out put the comments username. --}}
             @if (Auth::user()->id == $com->user->id)
               <li><form method="POST" action="/{{ $com->id }}/delete"> {{-- Create a form to delete the model, passing through the model ID. --}}
-                {{ method_field('PATCH') }}
+                
                 {{ csrf_field() }}
                 <button id ="deleteBut" type="submit">Remove</button>
               </form></li>
